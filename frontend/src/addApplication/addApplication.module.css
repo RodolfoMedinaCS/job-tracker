@@ -1,0 +1,79 @@
+
+
+.appOptions{
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    margin: 16px;
+}
+
+.contentBody{
+    flex: 1;
+    background-color: #057c27;
+}
+
+.pageWrapper{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.formGroup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+.companyName, .titleName, .jobStatus, .jobNotes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 500px;
+}
+
+input, select, textarea{
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #110404;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    background-color: white;
+}
+
+label{
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #f8f8f8;
+}
+
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalBox{
+    background-color: white;
+    padding: 32px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.bttns{
+    display: flex;
+}

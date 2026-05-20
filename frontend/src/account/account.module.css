@@ -1,0 +1,53 @@
+.flexContainer{
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.accountInfo{
+    width: 600px;
+    min-height: 100vh;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 12px;
+}
+
+ul{
+    display: flex;
+    gap: 6rem;
+    justify-content: center;
+}
+
+footer{
+    width: 100%;
+    height: 50px;
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+}
+
+li{
+    text-decoration: none;
+}
+
+.header{
+    background-color: white;
+
+}
+
+.bttn{
+    width: 100px;
+    height: 50px;
+    text-decoration: none;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #029b66;
+    transition: 0.3s
+}

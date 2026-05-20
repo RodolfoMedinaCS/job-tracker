@@ -1,0 +1,33 @@
+
+
+.applicationCard{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #58f171;
+    align-items: center;
+
+    width: 420px;
+    height: 110px;
+
+    box-sizing: border-box;
+
+    color: black;
+    text-decoration: none;
+}
+
+.jobTitle{
+    font-size: 24px;
+}
+
+.metaData{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.applicationCard:hover{
+    background-color: #41c957;
+}

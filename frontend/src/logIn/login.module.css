@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+
+ *{
+     font-family: "Josefin Sans", sans-serif;
+ }
+.loginBox{
+    width: 500px;
+    height: 600px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.flexContiner{
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.userInput{
+    width: 400px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.radioBttn{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+.radioBttn label {
+    white-space: nowrap;
+}
+
+.email,
+.password,
+.getName{
+    width: 100%;
+
+    padding-bottom: 5px;
+}
+
+.email input,
+.password input,
+.getName input{
+    box-sizing: border-box;
+}
+
+
+
+.loginHeader{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.loginInfo{
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.loginHeader span{
+    font-size: 40px;
+    font-weight: bold;
+}
+.loginHeader p{
+    font-size: 15px
+}
+
+.bttns{
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+
+    padding: 10px 20px;
+    background-color: #7945ff;
+    font-size: 16px;
+    font-weight: lighter;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+    color: white;
+}
+
+button:hover{
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+button:active{
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #003367;
+}
+
+.imgContainer{
+    height: 90%;
+    width: 65%;
+    padding-right: 20px;
+}
+.imgContainer img{
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+}
