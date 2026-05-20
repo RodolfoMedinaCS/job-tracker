@@ -32,3 +32,7 @@ frontend/.env
 backend/src/main/resources/application.properties
 frontend/node_modules/
 frontend/dist/
+.claude/
+backend/.env
+.env
+.idea/
