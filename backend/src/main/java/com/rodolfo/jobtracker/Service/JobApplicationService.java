@@ -93,6 +93,7 @@ public class JobApplicationService {
         jobApplicationStats.setTotalHired(jobApplicationRepository.countByStatus(ApplicationStatus.HIRED, user));
         jobApplicationStats.setTotalUnderReview(jobApplicationRepository.countByStatus(ApplicationStatus.UNDER_REVIEW, user));
         jobApplicationStats.setTotalOfferExtended(jobApplicationRepository.countByStatus(ApplicationStatus.OFFER_EXTENDED, user));
+        jobApplicationStats.setInterviewScheduled(jobApplicationRepository.countByStatus(ApplicationStatus.INTERVIEW_SCHEDULED, user));
         return jobApplicationStats;
     }
 

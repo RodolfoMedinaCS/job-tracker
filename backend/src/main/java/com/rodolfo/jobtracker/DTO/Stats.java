@@ -7,15 +7,18 @@ public class Stats {
     private int totalHired;
     private int totalUnderReview;
     private int totalOfferExtended;
+    private int interviewScheduled;
 
 
     public Stats(){}
-    public Stats(int totalSubmitted, int totalRejected, int totalHired, int totalUnderReview, int totalOfferExtended) {
+    public Stats(int totalSubmitted, int totalRejected, int totalHired, int totalUnderReview, int totalOfferExtended
+        , int interviewScheduled) {
         this.totalSubmitted = totalSubmitted;
         this.totalRejected = totalRejected;
         this.totalHired = totalHired;
         this.totalUnderReview = totalUnderReview;
         this.totalOfferExtended = totalOfferExtended;
+        this.interviewScheduled = interviewScheduled;
     }
 
     //getters
@@ -24,6 +27,7 @@ public class Stats {
     public int getTotalHired(){return totalHired;}
     public int getTotalUnderReview(){return totalUnderReview;}
     public int getTotalOfferExtended(){return totalOfferExtended;}
+    public int getInterviewScheduled() {return interviewScheduled;}
 
     //setters
     public void setTotalSubmitted(int totalSubmitted){this.totalSubmitted = totalSubmitted;}
@@ -31,4 +35,5 @@ public class Stats {
     public void setTotalHired(int totalHired){this.totalHired = totalHired;}
     public void setTotalUnderReview(int totalUnderReview){this.totalUnderReview = totalUnderReview;}
     public void setTotalOfferExtended(int totalOfferExtended){this.totalOfferExtended = totalOfferExtended;}
+    public void setInterviewScheduled(int interviewScheduled) {this.interviewScheduled = interviewScheduled;}
 }

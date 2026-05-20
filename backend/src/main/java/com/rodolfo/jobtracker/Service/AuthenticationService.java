@@ -43,15 +43,21 @@ public class AuthenticationService {
     }
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
+        System.out.println(">>> authenticated called with email: " + request.getEmail());
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
                         request.getPassword()
                 )
         );
+        System.out.println(">>> authentication Passed");
         var user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow();
+        System.out.println(">>> user found: " + user.getEmail());
+        System.out.println(">>> stored password : " + user.getPassword());
+
         var jwtToken = jwtService.generateToken(user);
+        System.out.println(">>> token generated: " + jwtToken);
         return new AuthenticationResponse(jwtToken);
     }
 }
