@@ -43,11 +43,8 @@ function Dashboard(){
                 <Sidebar/>
 
                 <div className={styles.rightContainer}>
-
-                    <NavBar setFilter={setFilter} filter={filter}></NavBar>
-
-                    <div>
-                        <hr className={styles.divider}/>
+                    <div class={styles.navContainer}>
+                        <NavBar setFilter={setFilter} filter={filter}></NavBar>
                     </div>
                     <div className={styles.dashboardContent}>
                         <div className={styles.appsList}>
@@ -56,8 +53,6 @@ function Dashboard(){
                             ))}
                         </div>
                     </div>
-
-
                 </div>
 
 

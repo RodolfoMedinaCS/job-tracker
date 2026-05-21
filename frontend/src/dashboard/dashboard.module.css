@@ -33,15 +33,18 @@ button:hover{
 
 .rightContainer{
     width: 100%;
-    border: 2px solid black;
-    margin: 8px;
-    border-radius: 10px;
-    overflow-y: auto;
+    gap: 1rem;
 
     display: flex;
     flex-direction: column;
 }
 
+.dashboardContent{
+    flex: 1;
+    background-color: #f7f7f7;
+    border: 2px solid black;
+    border-radius: 10px;
+}
 .filters{
     gap: 15px;
     width: 100%;
@@ -67,15 +70,15 @@ button:hover{
 
 .dashboard{
     min-height:100vh;
+    max-height: 100vh;
     display:flex;
-    min-height: 100vh;
+    overflow: hidden;
     background-color: #ffffff;
+    padding: 10px;
+    box-sizing: border-box;
+    gap: 15px;
 }
 
-.dashboardContent{
-    flex: 1;
-    background-color: #f7f7f7;
-}
 
 .appsList{
     display: flex;
@@ -84,6 +87,7 @@ button:hover{
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .footer{
