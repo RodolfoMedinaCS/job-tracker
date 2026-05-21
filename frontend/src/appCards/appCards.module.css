@@ -6,7 +6,7 @@
     padding: 0 16px;
     border: 1px solid black;
     border-radius: 10px;
-    background-color: #58f171;
+    background-color: #ffffff;
     align-items: center;
 
     width: 420px;
@@ -30,4 +30,70 @@
 
 .applicationCard:hover{
     background-color: #41c957;
+}
+
+
+/* new cards */
+.outerCard{
+    width: 300px;
+    height: 240px;
+    background-color: #fbc3bb;
+    border: 1px solid black;
+    border-radius: 25px;
+}
+.outerCard:hover{
+    background-color: #ffa498;
+    transition: background-color 0.3s ease;
+}
+.outerCard postedDate:hover{
+    color: #c51900
+}
+
+.postedDate{
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+    font-size: 15px;
+    font-weight: lighter;
+    color: #ff2000
+}
+.innerContainer{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 15px;
+    margin: 7px;
+    border-radius: 25px;
+    background-color: white;
+}
+
+.companyName{
+    font-size: 10px;
+}
+.jobTitle{
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+.jobTitle h3{
+    color: #1e114a;
+}
+.pills{
+    font-size: 13px;
+    border: 1px solid #a8a8a8;
+    padding: 5px 9px 5px 9px;
+    border-radius: 8px;
+    color: #6c4bd3;
+}
+
+.jobTags{
+    display: flex;
+    gap: 3px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
 }

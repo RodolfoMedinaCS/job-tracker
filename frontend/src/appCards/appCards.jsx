@@ -4,15 +4,26 @@ import { Link } from "react-router-dom";
 function appCards({job}){
     return(
         <div>
-            <Link key={job.id} to={`/applications/${job.id}`} className={styles.applicationCard}>
-                <div className={styles.metaData}>
-                    <h3>{job.company}</h3>
-                    <p>{job.jobTitle}</p>
-                </div>
+            <Link key={job.id} to={`/applications/${job.id}`}>
+                <div className={styles.outerCard}>
+                    <div className={styles.innerContainer}>
 
-                <div className={styles.metaData}>
-                    <span>{job.status}</span>
-                    <p>{job.dateApplied}</p>
+                        <div className={styles.companyName}>
+                            <h1>{job.company}</h1>
+                        </div>
+
+                        <div className={styles.jobTitle}>
+                            <h3>{job.jobTitle}</h3>
+                            <p>$130,000-145,000</p>
+                        </div>
+
+                        <div className={styles.jobTags}>
+                            <label className={styles.pills}>{job.status}</label>
+                            <label className={styles.pills}>{job.dateApplied}</label>
+                        </div>
+                    </div>
+
+                    <p className={styles.postedDate}>Posted Yesterday</p>
                 </div>
             </Link>
         </div>

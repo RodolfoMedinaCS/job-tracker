@@ -1,0 +1,77 @@
+.sidebar{
+    border: 2px solid black;
+    margin: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 240px;
+    gap: 3rem;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-left: 20px;
+}
+.accountMenu{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    height: 100%;
+}
+
+
+.menu a,
+.accountMenu a{
+    font-size: 22px;
+    text-decoration: none;
+    color:#8c9590;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.menuItems{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.menu a:hover,
+.accountMenu a:hover{
+    color: #2e7756;
+}
+
+.menu a:active,
+.accountMenu a:active{
+    color: #3c9a70;
+}
+
+.logo{
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.sectionName{
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.logoIcon{
+    font-size: 30px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+
+.logo img{
+    width: 30px;
+    height: 30px;
+}

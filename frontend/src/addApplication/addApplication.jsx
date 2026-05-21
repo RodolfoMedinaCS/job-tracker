@@ -1,4 +1,4 @@
-import Navbar from "../NavBar/navbar.jsx";
+import Navbar from "../NavBar/NavBar.jsx";
 import styles from "./addApplication.module.css"
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";

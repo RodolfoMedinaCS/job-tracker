@@ -1,9 +1,10 @@
 import styles from './dashboard.module.css'
 import AppCards from "../appCards/appCards.jsx"
 import {useEffect, useState} from "react";
-import Navbar from "../NavBar/navbar.jsx";
+import Sidebar from "../Sidebar/Sidebar.jsx";
+import NavBar from "../NavBar/NavBar.jsx";
 
-function dashboard(){
+function Dashboard(){
     const[filter, setFilter] = useState("ALL");
     const[jobList, setJobList] = useState([]);
 
@@ -39,34 +40,29 @@ function dashboard(){
         <>
             <div className={styles.dashboard}>
 
-                <Navbar></Navbar>
+                <Sidebar/>
 
-                <div className={styles.flexContainer}>
-                    <div className={styles.filters}>
-                        <label>Status Filters</label>
-                        <select value={filter} onChange={(e) =>
-                        setFilter(e.target.value)}>
-                            <option value="ALL">ALL</option>
-                            <option value="SUBMITTED">Submitted</option>
-                            <option value="UNDER_REVIEW">Under Review</option>
-                            <option value="INTERVIEW_SCHEDULED">Interview Scheduled</option>
-                            <option value="OFFER_EXTENDED">Offer Extended</option>
-                            <option value="REJECTED">Rejected</option>
-                            <option value="HIRED">Hired</option>
-                        </select>
+                <div className={styles.rightContainer}>
+
+                    <NavBar setFilter={setFilter} filter={filter}></NavBar>
+
+                    <div>
+                        <hr className={styles.divider}/>
                     </div>
+                    <div className={styles.dashboardContent}>
+                        <div className={styles.appsList}>
+                            {filteredJobs.map((singleJob) => (
+                                <AppCards key={singleJob.id} job={singleJob}/>
+                            ))}
+                        </div>
+                    </div>
+
+
                 </div>
 
-                <div className={styles.dashboardContent}>
-                    <div className={styles.appsList}>
-                        {filteredJobs.map((singleJob) => (
-                            <AppCards key={singleJob.id} job={singleJob}/>
-                        ))}
-                    </div>
-                </div>
-                <div className={styles.footer}></div>
+
             </div>
         </>
     )
 }
-export default dashboard
+export default Dashboard

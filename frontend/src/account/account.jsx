@@ -1,5 +1,5 @@
 import styles from "./account.module.css"
-import Navbar from "../NavBar/navbar.jsx";
+import Navbar from "../NavBar/NavBar.jsx";
 import {Link} from "react-router-dom";
 
 function account(){
