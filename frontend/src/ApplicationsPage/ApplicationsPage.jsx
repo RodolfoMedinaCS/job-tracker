@@ -2,12 +2,13 @@ import styles from "./ApplicationsPage.module.css"
 import {useEffect, useState} from "react";
 import AppCards from "../appCards/appCards.jsx";
 import { useNavBar } from "../Context/NavBarContext.jsx";
+import SidePanel from "../SidePanel/SidePanel.jsx";
 
 function ApplicationsPage(){
 
-
     const[jobList, setJobList] = useState([]);
     const token = localStorage.getItem("token");
+    const [selectedJob, setSelectedJob] = useState(null);
 
     const { setNavConfig, filter, setFilter } = useNavBar(); //tune into broadcast
 
@@ -42,9 +43,15 @@ function ApplicationsPage(){
         <>
             <div className={styles.appsList}>
                 {filteredJobs.map((singleJob) => (
-                    <AppCards key={singleJob.id} job={singleJob}/>
+                    <AppCards
+                        key={singleJob.id}
+                        job={singleJob}
+                        onCardClick={setSelectedJob}
+                    />
                 ))}
             </div>
+
+            <SidePanel job={selectedJob} onClose={() => setSelectedJob(null)} />
         </>
     )
 }

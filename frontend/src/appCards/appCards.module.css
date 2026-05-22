@@ -44,6 +44,7 @@
 .outerCard:hover{
     background-color: #ffa498;
     transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 .outerCard postedDate:hover{
     color: #c51900

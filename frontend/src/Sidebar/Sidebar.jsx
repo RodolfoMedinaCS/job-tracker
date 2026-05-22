@@ -1,5 +1,5 @@
 import styles from "./Sidebar.module.css"
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { MdDashboard } from "react-icons/md";
 import { IoDocumentText } from "react-icons/io5";
 import { MdAccountCircle } from "react-icons/md";
@@ -12,6 +12,12 @@ import logo from '../assets/images/801639-200.png'
 
 
 function Sidebar(){
+    const navigate = useNavigate();
+
+    function handleLogout(){
+        localStorage.removeItem("token");
+        navigate("/login");
+    }
     return(
         <>
             <div className={styles.sidebar}>
@@ -45,7 +51,7 @@ function Sidebar(){
                             <span>Account</span>
                         </span>
                     </Link>
-                    <Link href="#">
+                    <Link onClick={handleLogout} href="#">
                         <span className={styles.menuItems}>
                             <IoLogOut className={styles.menuIcon}></IoLogOut>
                             <span>Log out</span>

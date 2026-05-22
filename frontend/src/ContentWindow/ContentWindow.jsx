@@ -4,6 +4,7 @@ import NavBar from "../NavBar/NavBar.jsx";
 import {NavBarProvider} from "../Context/NavBarContext.jsx";
 import {Outlet} from "react-router-dom";
 
+
 function ContentWindow(){
 
     return(

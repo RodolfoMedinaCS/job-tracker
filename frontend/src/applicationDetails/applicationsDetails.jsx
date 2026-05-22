@@ -55,8 +55,6 @@ function ApplicationDetails(){
 
     return (
         <>
-            <Navbar></Navbar>
-
             {showConfirm && (
                 <div className={styles.modal}>
                     <div className={styles.modalBox}>
@@ -69,33 +67,10 @@ function ApplicationDetails(){
                 </div>
             )}
 
-            <button onClick={goBack}>Back Button</button>
-            <div className={styles.pageWrapper}>
-                <div className={styles.detailCard}>
 
-                    {/* Header */}
-                    <header className={styles.header}>
-                        <h2>Company Name: {job.company}</h2>
-                        <label>Job Title: {job.jobTitle}</label>
-                    </header>
+            <div className={styles.flexContainer}>
 
-                    <hr></hr>
 
-                    {/* Info Grid */}
-                    <div className={styles.infoGrid}>
-                        <label>Status Badge: {job.status}</label>
-                        <label>Date Applied: {job.dateApplied}</label>
-                        <label>Job URL: </label>
-                        <label>Notes: {job.notes}</label>
-                    </div>
-
-                    {/*Action Buttons*/}
-
-                    <div className={styles.actionsButtons}>
-                        <button onClick={handleDelete}>Delete</button>
-                        <button onClick={handleEdit} >Edit</button>
-                    </div>
-                </div>
             </div>
         </>
     )

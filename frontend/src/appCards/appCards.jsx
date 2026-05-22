@@ -1,10 +1,10 @@
 import styles from './appCards.module.css'
 import { Link } from "react-router-dom";
 
-function appCards({job}){
+function appCards({job, onCardClick}){
     return(
         <div>
-            <Link key={job.id} to={`/applications/${job.id}`}>
+            <div onClick={() => onCardClick(job)} key={job.id} to={`/applications/${job.id}`}>
                 <div className={styles.outerCard}>
                     <div className={styles.innerContainer}>
 
@@ -25,7 +25,7 @@ function appCards({job}){
 
                     <p className={styles.postedDate}>Posted Yesterday</p>
                 </div>
-            </Link>
+            </div>
         </div>
     )
 }

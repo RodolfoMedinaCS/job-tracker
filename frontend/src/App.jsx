@@ -1,7 +1,7 @@
 import {Route, Routes} from "react-router-dom";
 import ApplicationDetails from "./applicationDetails/applicationsDetails.jsx";
-import Login from "./logIn/login.jsx";
-import Register from "./register/register.jsx";
+import Login from "./Login/Login.jsx";
+import Register from "./Register/Register.jsx";
 import ApplicationsPage from "./ApplicationsPage/ApplicationsPage.jsx";
 import Dashboard from "./Dashboard/Dashboard.jsx";
 import ContentWindow from "./ContentWindow/ContentWindow.jsx";

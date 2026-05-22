@@ -1,9 +1,9 @@
-import styles from "./login.module.css"
+import styles from "./Login.module.css"
 import {Link, useNavigate} from "react-router-dom";
 import loginImage from "../../svgImages/file.svg"
 import {useState} from "react";
 
-function login(){
+function Login(){
     const navigate = useNavigate();
 
     let initialData = {
@@ -38,7 +38,7 @@ function login(){
             navigate("/dashboard");
 
         }catch(error){
-            throw new Error(error);
+            console.log(error);
         }
     }
 
@@ -69,7 +69,7 @@ function login(){
                             </div>
 
                             <div className={styles.password}>
-                                <input value={loginData.password} type="password" placeholder="Passwrod" onChange={(e) =>
+                                <input value={loginData.password} type="password" placeholder="Password" onChange={(e) =>
                                 setLoginData({...loginData, password: e.target.value})} />
                             </div>
 
@@ -97,4 +97,4 @@ function login(){
         </>
     )
 }
-export default login
+export default Login

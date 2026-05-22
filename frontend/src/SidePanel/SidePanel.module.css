@@ -1,0 +1,46 @@
+/* The dark background that appears behind the panel */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+
+/* The panel — always exists, starts OFF screen to the right */
+.panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    z-index: 20;
+    padding: 32px;
+
+    /* shoved off screen to the right */
+    transform: translateX(100%);
+    /* animate smoothly over 0.3 seconds */
+    transition: transform 0.3s ease;
+}
+
+/* When .open class is added, slide it back into view */
+.panel.open {
+    transform: translateX(0);
+}
+
+.panelHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.panelBody {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}

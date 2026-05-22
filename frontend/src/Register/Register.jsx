@@ -1,8 +1,8 @@
-import styles from "./register.module.css"
+import styles from "./Register.module.css"
 import {Link, useNavigate} from "react-router-dom";
 import {useState} from "react";
 
-function register(){
+function Register(){
     const navigate = useNavigate();
 
     let initialData = {
@@ -99,4 +99,4 @@ function register(){
         </>
     )
 }
-export default register
+export default Register
