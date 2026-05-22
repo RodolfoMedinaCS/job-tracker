@@ -23,13 +23,13 @@ function Sidebar(){
 
                 <div className={styles.menu}>
                     <p className={styles.sectionName}>MENU</p>
-                    <Link>
+                    <Link to={"/dashboard"}>
                         <span className={styles.menuItems}>
                             <MdDashboard className={styles.menuIcon}></MdDashboard>
                             <span>Dashboard</span>
                         </span>
                     </Link>
-                    <Link>
+                    <Link to={"/applications"}>
                         <span className={styles.menuItems}>
                             <IoDocumentText className={styles.menuIcon}></IoDocumentText>
                             <span>Applications</span>
