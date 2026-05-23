@@ -3,8 +3,39 @@
     margin: 0;
 
     font-family: SansSerif;
+    box-sizing: border-box;
 
 }
+
+
+
+
+
+:root {
+    /* ── Midnight Blue ── */
+    --color-primary:        #1d4ed8;
+    --color-sidebar-bg:     #0f172a;
+    --color-sidebar-text:   #94a3b8;
+    --color-sidebar-active: #3b82f6;
+    --color-page-bg:        #f0f6ff;
+    --color-stat-bg:        #dbeafe;
+    --color-stat-text:      #1e3a8a;
+
+    /* status badge colors */
+    --color-applied-bg:     #e0e7ff;
+    --color-applied-text:   #3730a3;
+    --color-interview-bg:   #fef3c7;
+    --color-interview-text: #92400e;
+    --color-offer-bg:       #dcfce7;
+    --color-offer-text:     #166534;
+    --color-rejected-bg:    #f1f5f9;
+    --color-rejected-text:  #475569;
+}
+
+
+
+
+
 
 .nav{
     display: flex;

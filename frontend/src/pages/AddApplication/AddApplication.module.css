@@ -1,5 +1,150 @@
 .pageWrapper{
-    border: 1px solid black;
     height: 100%;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #E1DCC9;
+    overflow-y: auto;
+}
+
+.formContainer{
+    width: 700px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin: 100px;
+
+}
+/*buttons!*/
+.addBttns{
+    all : unset;
+    border: 1px solid black;
+    padding: 20px 25px 20px 25px;
+    border-radius: 8px;
+    color: white;
+    background-color: black;
+}
+.appOptions{
+    display: flex;
+    gap: 2rem;
+    margin: 30px
+}
+
+/*Containers */
+.companySection,
+.positionSection,
+.appDetSection,
+.recConSection,
+.notesBlock{
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+    padding: 15px;
+    background-color: #412D15;
+    border-radius: 10px;
+    color: #E1DCC9;
+}
+
+.companySection,
+.positionSection,
+.appDetSection,
+.recConSection,
+.notesBlock{
+    display: flex;
+    padding-left: 40px;
+    padding-right: 40px;
+    flex-direction: column;
+    gap: 1.2rem;
+    font-size: 13px;
+}
+
+
+
+
+
+
+/*company block*/
+.inputField,
+.selectField,
+.textArea{
+    text-decoration: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 8px 12px;
+    width: 300px;
+    background-color: #E1DCC9;
+    color: #c4c4c4;
+}
+.inputFieldSpecial,
+.textAreaSpecial{
+    text-decoration: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 8px 12px;
+    width: 100%;
+    background-color: #E1DCC9;
+    color: #c4c4c4;
+}
+
+.companyName,
+.companyWebsite,
+.companyLocation,
+.companyWorkType{
+    display: flex;
+    flex-direction: column;
+}
+.companyTop,
+.companyBot{
+    display: flex;
+    justify-content: space-between;
+}
+
+/*position Block*/
+
+.posTop,
+.posBot{
+    display: flex;
+    justify-content: space-between;
+}
+.jobTitle,
+.jobType,
+.posUrl{
+    display: flex;
+    flex-direction: column;
+}
+.posUrl{
+    width: 100%;
+}
+
+/*Applications Detail Block*/
+
+.appDevTop,
+.appDevBot{
+    display: flex;
+    justify-content: space-between;
+}
+.dateApplied,
+.status,
+.salMin,
+.salMax{
+    display: flex;
+    flex-direction: column;
+}
+/*Recruiter Contact block*/
+
+.recDet{
+    display: flex;
+    justify-content: space-between;
+}
+/*notes Block*/
+
+.notes{
+    display: flex;
+    flex-direction: column;
+    width: 100%
 }
