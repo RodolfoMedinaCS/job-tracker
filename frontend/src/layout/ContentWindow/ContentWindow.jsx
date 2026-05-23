@@ -1,7 +1,7 @@
 import styles from './ContentWindow.module.css'
-import Sidebar from "../Sidebar/Sidebar.jsx";
-import NavBar from "../NavBar/NavBar.jsx";
-import {NavBarProvider} from "../Context/NavBarContext.jsx";
+import Sidebar from "../../components/Sidebar/Sidebar.jsx";
+import NavBar from "../../components/NavBar/NavBar.jsx";
+import {NavBarProvider} from "../../context/NavBarContext.jsx";
 import {Outlet} from "react-router-dom";
 
 
@@ -13,7 +13,7 @@ function ContentWindow(){
                 <div className={styles.dashboard}>
                     <Sidebar/>
                     <div className={styles.rightContainer}>
-                        <div class={styles.navContainer}>
+                        <div className={styles.navContainer}>
                             <NavBar></NavBar>
                         </div>
                         <div className={styles.dashboardContent}>

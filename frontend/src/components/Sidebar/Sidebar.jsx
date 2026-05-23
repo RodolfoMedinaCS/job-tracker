@@ -4,7 +4,7 @@ import { MdDashboard } from "react-icons/md";
 import { IoDocumentText } from "react-icons/io5";
 import { MdAccountCircle } from "react-icons/md";
 import { IoLogOut } from "react-icons/io5";
-import logo from '../assets/images/801639-200.png'
+import logo from '../../assets/images/801639-200.png'
 
 
 

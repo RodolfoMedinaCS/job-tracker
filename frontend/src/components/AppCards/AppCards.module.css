@@ -93,8 +93,3 @@
     display: flex;
     gap: 3px;
 }
-
-a{
-    text-decoration: none;
-    color: inherit;
-}

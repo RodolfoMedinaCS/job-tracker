@@ -1,8 +1,8 @@
 import styles from "./ApplicationsPage.module.css"
 import {useEffect, useState} from "react";
-import AppCards from "../appCards/appCards.jsx";
-import { useNavBar } from "../Context/NavBarContext.jsx";
-import SidePanel from "../SidePanel/SidePanel.jsx";
+import AppCards from "../../components/AppCards/AppCards.jsx";
+import { useNavBar } from "../../context/NavBarContext.jsx";
+import SidePanel from "../../SidePanel/SidePanel.jsx";
 
 function ApplicationsPage(){
 

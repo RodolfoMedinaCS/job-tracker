@@ -87,10 +87,10 @@ function Register(){
 
 
                         <div className={styles.bttns}>
-                            <button onClick={registerAccount}>Create Account</button>
+                            <button className={styles.regBttn} onClick={registerAccount}>Create Account</button>
 
                             <Link to={"/login"}>
-                                <button>Log In</button>
+                                <button className={styles.regBttn}>Log In</button>
                             </Link>
                         </div>
                     </div>

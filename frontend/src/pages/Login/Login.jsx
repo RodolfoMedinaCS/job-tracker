@@ -1,6 +1,6 @@
 import styles from "./Login.module.css"
 import {Link, useNavigate} from "react-router-dom";
-import loginImage from "../../svgImages/file.svg"
+import loginImage from "../../../svgImages/file.svg"
 import {useState} from "react";
 
 function Login(){
@@ -83,9 +83,9 @@ function Login(){
 
                         <div className={styles.bttns}>
                             <Link to={"/register"}>
-                                <button>Create Account</button>
+                                <button className={styles.lgnbttn} >Create Account</button>
                             </Link>
-                            <button onClick={handleLogin}>Log In</button>
+                            <button className={styles.lgnbttn} onClick={handleLogin}>Log In</button>
                         </div>
                     </div>
                 </div>

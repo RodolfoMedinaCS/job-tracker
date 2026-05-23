@@ -98,7 +98,7 @@
 .bttns buttons{
     color: white;
 }
-button{
+.lgnbttn{
     border: none;
     outline: none;
     cursor: pointer;
@@ -114,12 +114,12 @@ button{
     color: white;
 }
 
-button:hover{
+.lgnbttn:hover{
     background-color: #0056b3;
     transform: translateY(-2px);
 }
 
-button:active{
+.lgnbttn:active{
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: #003367;

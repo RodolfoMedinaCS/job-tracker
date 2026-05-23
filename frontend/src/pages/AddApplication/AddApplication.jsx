@@ -1,5 +1,5 @@
-import Navbar from "../NavBar/NavBar.jsx";
-import styles from "./addApplication.module.css"
+import Navbar from "../../components/NavBar/NavBar.jsx";
+import styles from "./AddApplication.module.css"
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {useLocation} from "react-router-dom";
@@ -108,9 +108,8 @@ function AddApplication(){
             )}
 
             <div className={styles.pageWrapper}>
-                <Navbar/>
                 <div className={styles.appOptions}>
-                    <button onClick={backToDash} >Cancel</button>
+                    <button  onClick={backToDash} >Cancel</button>
                     <button onClick={handleSubmit}>Add + </button>
                 </div>
 

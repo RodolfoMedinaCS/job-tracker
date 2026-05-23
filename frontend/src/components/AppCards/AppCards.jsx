@@ -1,4 +1,4 @@
-import styles from './appCards.module.css'
+import styles from './AppCards.module.css'
 import { Link } from "react-router-dom";
 
 function appCards({job, onCardClick}){

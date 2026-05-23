@@ -49,6 +49,9 @@
     display: flex;
     gap: 2rem;
 }
+.inputLabel{
+    color: black;
+}
 
 
 

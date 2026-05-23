@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 import styles from "./NavBar.module.css"
 import { FaMagnifyingGlass } from "react-icons/fa6";
-import { useNavBar } from "../Context/NavBarContext.jsx";
+import { useNavBar } from "../../context/NavBarContext.jsx";
 
 
 function NavBar() {
@@ -21,7 +21,7 @@ function NavBar() {
                         </div>
 
                         <div className={styles.filters}>
-                            <label >Status Filters</label>
+                            <label className={styles.inputLabel}>Status Filters</label>
                             <select value={filter} onChange={(e) =>
                                 setFilter(e.target.value)}>
                                 <option value="ALL">ALL</option>

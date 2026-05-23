@@ -1,7 +1,7 @@
-import styles from './applicationDetails.module.css'
+import styles from './Application.module.css'
 import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import Navbar from "../NavBar/NavBar.jsx";
+import Navbar from "../../components/NavBar/NavBar.jsx";
 
 function ApplicationDetails(){
     const {id} = useParams();
