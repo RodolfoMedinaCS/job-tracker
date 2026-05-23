@@ -5,6 +5,7 @@ import { IoDocumentText } from "react-icons/io5";
 import { MdAccountCircle } from "react-icons/md";
 import { IoLogOut } from "react-icons/io5";
 import logo from '../../assets/images/801639-200.png'
+import { NavLink } from "react-router-dom";
 
 
 
@@ -29,28 +30,28 @@ function Sidebar(){
 
                 <div className={styles.menu}>
                     <p className={styles.sectionName}>MENU</p>
-                    <Link to={"/dashboard"}>
+                    <NavLink to="/dashboard" className={({ isActive }) => isActive ? styles.activeLink : ""}>
                         <span className={styles.menuItems}>
                             <MdDashboard className={styles.menuIcon}></MdDashboard>
                             <span>Dashboard</span>
                         </span>
-                    </Link>
-                    <Link to={"/applications"}>
+                    </NavLink>
+                    <NavLink to={"/applications"} className={({ isActive }) => isActive ? styles.activeLink : ""}>
                         <span className={styles.menuItems}>
                             <IoDocumentText className={styles.menuIcon}></IoDocumentText>
                             <span>Applications</span>
                         </span>
-                    </Link>
+                    </NavLink>
                 </div>
 
                 <div className={styles.accountMenu}>
                     <p className={styles.sectionName}>GENERAL</p>
-                    <Link>
+                    <NavLink to={"/Account"} className={({ isActive }) => isActive ? styles.activeLink : "" }>
                         <span className={styles.menuItems}>
                             <MdAccountCircle className={styles.menuIcon}></MdAccountCircle>
                             <span>Account</span>
                         </span>
-                    </Link>
+                    </NavLink>
                     <Link onClick={handleLogout} href="#">
                         <span className={styles.menuItems}>
                             <IoLogOut className={styles.menuIcon}></IoLogOut>

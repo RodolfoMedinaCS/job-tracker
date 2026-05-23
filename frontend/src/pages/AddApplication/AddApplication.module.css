@@ -4,28 +4,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #E1DCC9;
+    background-color: #f0f4ff;
     overflow-y: auto;
 }
 
 .formContainer{
-    width: 700px;
+    width: 800px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    margin: 100px;
+    margin: 75px;
 
 }
 /*buttons!*/
 .addBttns{
     all : unset;
-    border: 1px solid black;
     padding: 20px 25px 20px 25px;
     border-radius: 8px;
     color: white;
-    background-color: black;
+    background-color: #1d4ed8;
+    border-color: #1d4ed8;
 }
 .appOptions{
     display: flex;
@@ -41,11 +41,12 @@
 .notesBlock{
     width: 100%;
     height: auto;
-    border: 1px solid black;
-    padding: 15px;
-    background-color: #412D15;
+    padding: 25px;
     border-radius: 10px;
-    color: #E1DCC9;
+
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #0f172a;
 }
 
 .companySection,
@@ -58,13 +59,23 @@
     padding-right: 40px;
     flex-direction: column;
     gap: 1.2rem;
-    font-size: 13px;
+    font-size: 15px;
 }
 
+.companySection > label:first-child,
+.positionSection > label:first-child,
+.appDetSection > label:first-child,
+.recConSection > label:first-child,
+.notesBlock > label:first-child {
+    color: #1d4ed8;
+}
 
-
-
-
+.inputField, .selectField,
+.inputFieldSpecial, .textAreaSpecial {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #c4c4c4;
+}
 
 /*company block*/
 .inputField,
@@ -74,8 +85,8 @@
     outline: none;
     border-radius: 5px;
     font-size: 16px;
-    padding: 8px 12px;
-    width: 300px;
+    padding: 14px 18px;
+    width: 350px;
     background-color: #E1DCC9;
     color: #c4c4c4;
 }

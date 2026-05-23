@@ -29,7 +29,7 @@
 .accountMenu a{
     font-size: 22px;
     text-decoration: none;
-    color:#8c9590;
+    color: #94a3b8; ;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -43,12 +43,12 @@
 
 .menu a:hover,
 .accountMenu a:hover{
-    color: #2e7756;
+    color: #93c5fd;
 }
 
 .menu a:active,
 .accountMenu a:active{
-    color: #3c9a70;
+    color: #3b82f6;
 }
 
 .logo{
@@ -59,6 +59,7 @@
 .sectionName{
     font-size: 10px;
     font-weight: bold;
+    color: #475569;
 }
 
 .logoIcon{
@@ -73,4 +74,9 @@
 .logo img{
     width: 30px;
     height: 30px;
+}
+
+.activeLink span {
+    color: #3b82f6;
+    font-weight: 500;
 }
