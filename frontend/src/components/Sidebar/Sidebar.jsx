@@ -12,6 +12,7 @@ import { NavLink } from "react-router-dom";
 
 
 
+
 function Sidebar(){
     const navigate = useNavigate();
 
@@ -25,7 +26,8 @@ function Sidebar(){
 
 
                 <div className={styles.logo}>
-                    <label className={styles.logoIcon}><img src={logo} alt="logo"></img> JobApps</label>
+                    <IoDocumentText className={styles.logoIcon}></IoDocumentText>
+                    <label className={styles.logoIcon}> JobApps</label>
                 </div>
 
                 <div className={styles.menu}>

@@ -26,17 +26,43 @@ function AddApplication(){
     if(existingApp){
         initialData = {
             company: existingApp.company || "",
+            companyWebsite: existingApp.companyWebsite || "",
+            location: existingApp.location || "",
+            workType: existingApp.workType || "",
+
             jobTitle: existingApp.jobTitle || "",
-            status: existingApp.status || "",
+            jobType: existingApp.jobType || "",
+            jobUrl: existingApp.jobUrl || "",
+
             dateApplied: existingApp.dateApplied || "",
+            status: existingApp.status || "",
+            salaryMin: existingApp.salaryMin || "",
+            salaryMax: existingApp.salaryMax || "",
+
+            recruiterName: existingApp.recruiterName || "",
+            recruiterEmail: existingApp.recruiterEmail || "",
+
             notes: existingApp.notes || ""
         }
     }else{
         initialData ={
             company: "",
+            companyWebsite: "",
+            location: "",
+            workType: "",
+
             jobTitle: "",
-            status: "",
+            jobType: "",
+            jobUrl: "",
+
             dateApplied: "",
+            status: "",
+            salaryMin: "",
+            salaryMax: "",
+
+            recruiterName: "",
+            recruiterEmail: "",
+
             notes: ""
         }
     }
@@ -44,8 +70,7 @@ function AddApplication(){
     const [formData, setFormData] = useState(initialData)
 
     async function handleSubmit(){
-        if(!formData.company || !formData.jobTitle || !formData.status || !formData.dateApplied
-        || !formData.notes){
+        if(!formData.company || !formData.jobTitle || !formData.status || !formData.dateApplied ){
             alert("please fill out all fields!");
             return;
         }
@@ -95,7 +120,7 @@ function AddApplication(){
     }
 
     function backToDash(){
-        navigate('/dashboard');
+        navigate('/applications');
     }
 
 
@@ -125,25 +150,30 @@ function AddApplication(){
                         <div className={styles.companyTop}>
                             <div className={styles.companyName}>
                                 <label>Company name</label>
-                                <input className={styles.inputField} placeholder="e.g. Google" type="text" value={formData.company} onChange={(e) =>
+                                <input required className={styles.inputField} placeholder="e.g. Google" type="text" value={formData.company} onChange={(e) =>
                                     setFormData({...formData, company: e.target.value})} />
                             </div>
                             <div className={styles.companyWebsite}>
                                 <label>Company Website</label>
-                                <input className={styles.inputField}  type="text" placeholder="careers.google.com"/>
+                                <input value={formData.companyWebsite} className={styles.inputField}  type="text" placeholder="careers.google.com" onChange={(e) =>
+                                setFormData({...formData, companyWebsite : e.target.value})}/>
                             </div>
                         </div>
 
                         <div className={styles.companyBot}>
                             <div className={styles.companyLocation}>
                                 <label>Location</label>
-                                <input className={styles.inputField}  type="text" placeholder="Mountain View, CA"/>
+                                <input value={formData.location} className={styles.inputField}  type="text" placeholder="Mountain View, CA" onChange={(e) =>
+                                setFormData({...formData, location: e.target.value})}/>
                             </div>
                             <div className={styles.companyWorkType}>
                                 <label>Work Type</label>
-                                <select className={styles.selectField} >
-                                    <option>remote</option>
-                                    <option>in-person</option>
+                                <select value={formData.workType} className={styles.selectField} onChange={(e) =>
+                                setFormData({...formData, workType: e.target.value})}>
+                                    <option>Select Work Type</option>
+                                    <option value="REMOTE">Remote</option>
+                                    <option value="HYBRID">Hybrid</option>
+                                    <option value="ON_SITE">On Site</option>
                                 </select>
                             </div>
                         </div>
@@ -155,21 +185,28 @@ function AddApplication(){
                         <div className={styles.posTop}>
                             <div className={styles.jobTitle}>
                                 <label>Job Title: </label>
-                                <input placeholder="Software Engineer Intern" className={styles.inputField} type="text" value={formData.jobTitle} onChange={(e) =>
+                                <input required placeholder="Software Engineer Intern" className={styles.inputField} type="text" value={formData.jobTitle} onChange={(e) =>
                                     setFormData({...formData, jobTitle: e.target.value })} />
                             </div>
                             <div className={styles.jobType}>
                                 <label>Job Type</label>
-                                <select className={styles.selectField} >
-                                    <option>Internship</option>
-                                    <option>Senior</option>
+                                <select value={formData.jobType} className={styles.selectField} onChange={(e) =>
+                                setFormData({...formData, jobType: e.target.value})}>
+                                    <option>Select Job Type</option>
+                                    <option value="FULL_TIME">Full Time </option>
+                                    <option value="PART_TIME">Part Time</option>
+                                    <option value="INTERNSHIP">Internship</option>
+                                    <option value="CONTRACT">Contract</option>
+                                    <option value="FREELANCE">Freelance</option>
+                                    <option value="APPRENTICESHIP">Apprenticeship</option>
                                 </select>
                             </div>
                         </div>
                         <div className={styles.posBot}>
                             <div className={styles.posUrl}>
                                 <label>Job posting url</label>
-                                <input placeholder="https://jobs.lever.co/..." className={styles.inputFieldSpecial}  type="text"/>
+                                <input value={formData.jobUrl} placeholder="https://jobs.lever.co/..." className={styles.inputFieldSpecial}  type="text" onChange={(e) =>
+                                setFormData({...formData, jobUrl: e.target.value})}/>
                             </div>
                         </div>
                     </div>
@@ -180,12 +217,12 @@ function AddApplication(){
                         <div className={styles.appDevTop}>
                             <div className={styles.dateApplied}>
                                 <label>Date Applied</label>
-                                <input className={styles.inputField}  type="date" value={formData.dateApplied} onChange={(e) =>
+                                <input required className={styles.inputField}  type="date" value={formData.dateApplied} onChange={(e) =>
                                     setFormData({...formData, dateApplied: e.target.value})} />
                             </div>
                             <div className={styles.status}>
                                 <label>Job Status: </label>
-                                <select className={styles.selectField} value={formData.status} onChange={(e) =>
+                                <select required className={styles.selectField} value={formData.status} onChange={(e) =>
                                     setFormData({...formData, status: e.target.value})} >
                                     <option value="">Select Status</option>
                                     <option value="SUBMITTED">Submitted</option>
@@ -200,11 +237,13 @@ function AddApplication(){
                         <div className={styles.appDevBot}>
                             <div className={styles.salMin}>
                                 <label>Salary (min)</label>
-                                <input className={styles.inputField}  type="text" placeholder="$ 120,000"/>
+                                <input className={styles.inputField}  type="text" placeholder="$ 120,000" onChange={(e) =>
+                                setFormData({...formData, salaryMin: e.target.value})}/>
                             </div>
                             <div className={styles.salMax}>
                                 <label>Salary (max)</label>
-                                <input className={styles.inputField}  type="text" placeholder="$ 150,000"/>
+                                <input className={styles.inputField}  type="text" placeholder="$ 150,000" onChange={(e) =>
+                                setFormData({...formData, salaryMax: e.target.value})}/>
                             </div>
                         </div>
                     </div>
@@ -215,11 +254,13 @@ function AddApplication(){
                         <div className={styles.recDet}>
                             <div className={styles.recName}>
                                 <label>Recruiter Name</label>
-                                <input className={styles.inputField}  type="text" placeholder="Jane Doe"/>
+                                <input className={styles.inputField}  type="text" placeholder="Jane Doe" onChange={(e) =>
+                                setFormData({...formData, recruiterName: e.target.value})}/>
                             </div>
                             <div className={styles.recEmail}>
                                 <label>Recruiter Email</label>
-                                <input  className={styles.inputField} type="email" placeholder="jane@google.com"/>
+                                <input  className={styles.inputField} type="email" placeholder="jane@google.com" onChange={(e) =>
+                                setFormData({...formData, recruiterEmail: e.target.value})}/>
                             </div>
                         </div>
                     </div>

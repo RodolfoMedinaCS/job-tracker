@@ -4,7 +4,6 @@
     display: flex;
     justify-content: space-between;
     padding: 0 16px;
-    border: 1px solid black;
     border-radius: 10px;
     background-color: #ffffff;
     align-items: center;
@@ -38,7 +37,7 @@
     width: 300px;
     height: 240px;
     background-color: #fbc3bb;
-    border: 1px solid black;
+    border: 1px solid #fbc3bb;
     border-radius: 25px;
 }
 .outerCard:hover{

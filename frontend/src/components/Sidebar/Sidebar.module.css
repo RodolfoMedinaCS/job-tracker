@@ -54,6 +54,8 @@
 .logo{
     padding-left: 20px;
     padding-top: 20px;
+    display: flex;
+    gap: 10px
 }
 
 .sectionName{

@@ -1,46 +1,156 @@
-/* The dark background that appears behind the panel */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 10;
-}
-
-/* The panel — always exists, starts OFF screen to the right */
 .panel {
     position: fixed;
     top: 0;
     right: 0;
-    width: 420px;
+    width: 380px;
     height: 100vh;
-    background-color: white;
-    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    background: #ffffff;
+    border-left: 0.5px solid #e2e8f0;
     z-index: 20;
-    padding: 32px;
-
-    /* shoved off screen to the right */
+    display: flex;
+    flex-direction: column;
     transform: translateX(100%);
-    /* animate smoothly over 0.3 seconds */
     transition: transform 0.3s ease;
 }
-
-/* When .open class is added, slide it back into view */
-.panel.open {
-    transform: translateX(0);
-}
+.panel.open { transform: translateX(0); }
 
 .panelHeader {
+    padding: 24px 24px 20px;
+    border-bottom: 0.5px solid #e2e8f0;
+}
+.headerTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4px;
+}
+.company {
+    font-size: 18px;
+    font-weight: 500;
+    color: #0f172a;
+    margin: 0 0 4px;
+}
+.jobTitle {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0 0 12px;
+}
+.closeBtn {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: #f1f5f9;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.badgeRow {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+.badge {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 99px;
+}
+.badgeInterview { background: #fef3c7; color: #92400e; }
+.badgeSubmitted { background: #dbeafe; color: #1e40af; }
+.badgeOffer     { background: #dcfce7; color: #166534; }
+.badgeRejected  { background: #f1f5f9; color: #475569; }
+.badgeHired     { background: #d1fae5; color: #065f46; }
+
+.panelBody {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.sectionTitle {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin: 0 0 12px;
+}
+.infoRow {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
+    padding: 8px 0;
+    border-bottom: 0.5px solid #f1f5f9;
+    font-size: 13px;
+}
+.infoRow:last-child { border-bottom: none; }
+.infoLabel { color: #94a3b8; }
+.infoVal   { color: #0f172a; font-weight: 500; }
+.divider   { border: none; border-top: 0.5px solid #e2e8f0; margin: 0; }
+
+.recruiterRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #dbeafe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 500;
+    color: #1d4ed8;
+    flex-shrink: 0;
+}
+.recruiterName  { font-size: 13px; font-weight: 500; color: #0f172a; margin: 0; }
+.recruiterEmail { font-size: 11px; color: #94a3b8; }
+
+.notesText {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.7;
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin: 0;
 }
 
-.panelBody {
+.panelFooter {
+    padding: 16px 24px;
+    border-top: 0.5px solid #e2e8f0;
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    gap: 10px;
+}
+.btnEdit {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    background: #1d4ed8;
+    color: #fff;
+}
+.btnDelete {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #fff;
+    color: #dc2626;
+    border: 0.5px solid #fecaca;
 }
