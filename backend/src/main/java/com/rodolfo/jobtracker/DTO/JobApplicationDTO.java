@@ -36,9 +36,12 @@ public class JobApplicationDTO {
     //notes
     private String notes;
 
+    //color
+    private String color;
+
     public JobApplicationDTO(String company, String companyWebsite, String location, WorkType workType, String jobTitle,
                           JobType jobType, String jobUrl, LocalDate dateApplied, ApplicationStatus status, int salaryMin,
-                          int salaryMax, String recruiterName, String recruiterEmail, String notes, Long id) {
+                          int salaryMax, String recruiterName, String recruiterEmail, String notes, Long id, String color) {
         this.company = company; //
         this.companyWebsite = companyWebsite; //
         this.location = location;//
@@ -54,6 +57,7 @@ public class JobApplicationDTO {
         this.recruiterEmail = recruiterEmail;//
         this.notes = notes; //
         this.id = id;
+        this.color = color;
     }
 
     //getters
@@ -71,6 +75,8 @@ public class JobApplicationDTO {
     public String getRecruiterEmail(){return recruiterEmail;}
     public WorkType getWorkType(){return workType;}
     public JobType getJobType(){return jobType;}
+
+    public String getColor() {return color;}
 
     public Long getId() {
         return id;
@@ -91,6 +97,8 @@ public class JobApplicationDTO {
     public void setRecruiterEmail(String recruiterEmail) {this.recruiterEmail = recruiterEmail;}
     public void setWorkType(WorkType workType){this.workType = workType;}
     public void setJobTitle(JobType jobType){this.jobType = jobType;}
+
+    public void setColor(String color) {this.color = color;}
 
     public void setId(Long id) {
         this.id = id;

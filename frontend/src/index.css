@@ -30,6 +30,15 @@
     --color-offer-text:     #166534;
     --color-rejected-bg:    #f1f5f9;
     --color-rejected-text:  #475569;
+
+
+    /*Application card colors*/
+    --card-coral:    #fbd0c5;
+    --card-peach:    #fce9d6;
+    --card-lemon:    #fef2c0;
+    --card-lavender: #dbd2f3;
+    --card-mint:     #c9e8d4;
+    --card-sky:      #cce5fb;
 }
 
 

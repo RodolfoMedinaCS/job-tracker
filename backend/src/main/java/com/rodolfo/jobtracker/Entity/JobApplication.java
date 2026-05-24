@@ -39,6 +39,9 @@ public class JobApplication {
     //notes
     private String notes;
 
+    //application color
+    private String color;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -46,7 +49,7 @@ public class JobApplication {
     public JobApplication(){}
     public JobApplication(String company, String companyWebsite, String location, WorkType workType, String jobTitle,
                           JobType jobType, String jobUrl, LocalDate dateApplied, ApplicationStatus status, int salaryMin,
-                          int salaryMax, String recruiterName, String recruiterEmail, String notes) {
+                          int salaryMax, String recruiterName, String recruiterEmail, String notes, String color) {
         this.company = company; //
         this.companyWebsite = companyWebsite; //
         this.location = location;//
@@ -61,6 +64,7 @@ public class JobApplication {
         this.recruiterName = recruiterName;//
         this.recruiterEmail = recruiterEmail;//
         this.notes = notes; //
+        this.color = color;
     }
 
     //getters
@@ -78,6 +82,7 @@ public class JobApplication {
     public String getRecruiterEmail(){return recruiterEmail;}
     public WorkType getWorkType(){return workType;}
     public JobType getJobType(){return jobType;}
+    public String getColor(){return color;}
 
     public Long getId(){return id;}
     public User getUser() {return user;}
@@ -97,6 +102,7 @@ public class JobApplication {
     public void setRecruiterEmail(String recruiterEmail) {this.recruiterEmail = recruiterEmail;}
     public void setWorkType(WorkType workType){this.workType = workType;}
     public void setJobType(JobType jobType){this.jobType = jobType;}
+    public void setColor(String color) {this.color = color;}
 
     public void setId(Long id){this.id = id;}
     public void setUser(User user) {this.user = user;}

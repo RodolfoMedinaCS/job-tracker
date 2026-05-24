@@ -47,7 +47,8 @@ public class JobApplicationService {
                         application.getRecruiterName(),
                         application.getRecruiterEmail(),
                         application.getNotes(),
-                        application.getId()))
+                        application.getId(),
+                        application.getColor()))
                 .toList();
     }
 
@@ -63,7 +64,9 @@ public class JobApplicationService {
         return new JobApplicationDTO(application.getCompany(), application.getCompanyWebsite(),application.getLocation(),
                 application.getWorkType(),application.getJobTitle(),application.getJobType(),application.getJobUrl(),
                 application.getDateApplied(), application.getStatus(), application.getSalaryMin(),application.getSalaryMax(),
-                application.getRecruiterName(), application.getRecruiterEmail(), application.getNotes(),application.getId());
+                application.getRecruiterName(), application.getRecruiterEmail(), application.getNotes(),application.getId(),
+                application.getColor()
+        );
     }
 
     //delete job application
@@ -126,6 +129,9 @@ public class JobApplicationService {
         if(jobApplication.getRecruiterEmail() != null){
             existing.setRecruiterEmail(jobApplication.getRecruiterEmail());
         }
+        if(jobApplication.getColor() != null){
+            existing.setColor(jobApplication.getColor());
+        }
 
         jobApplicationRepository.save(existing);
     }
@@ -155,6 +161,8 @@ public class JobApplicationService {
         return new JobApplicationDTO(application.getCompany(), application.getCompanyWebsite(),application.getLocation(),
                 application.getWorkType(),application.getJobTitle(),application.getJobType(),application.getJobUrl(),
                 application.getDateApplied(), application.getStatus(), application.getSalaryMin(),application.getSalaryMax(),
-                application.getRecruiterName(), application.getRecruiterEmail(), application.getNotes(),application.getId());
+                application.getRecruiterName(), application.getRecruiterEmail(), application.getNotes(),application.getId(),
+                application.getColor()
+        );
     }
 }

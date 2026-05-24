@@ -42,7 +42,9 @@ function AddApplication(){
             recruiterName: existingApp.recruiterName || "",
             recruiterEmail: existingApp.recruiterEmail || "",
 
-            notes: existingApp.notes || ""
+            notes: existingApp.notes || "",
+
+            color: existingApp.color || ""
         }
     }else{
         initialData ={
@@ -63,7 +65,9 @@ function AddApplication(){
             recruiterName: "",
             recruiterEmail: "",
 
-            notes: ""
+            notes: "",
+
+            color: ""
         }
     }
 
@@ -273,6 +277,46 @@ function AddApplication(){
                             <textarea placeholder="Anything worth remembering — interview prep, who referred you..." className={styles.textAreaSpecial} value={formData.notes} onChange={(e) =>
                                 setFormData({...formData, notes: e.target.value})} >
                             </textarea>
+                        </div>
+                    </div>
+
+                    {/* Color Picker*/}
+                    <div className={styles.colorBlock}>
+                        <div className={styles.color} style={{backgroundColor: 'var(--card-coral)',
+                            outline: formData.color === 'var(--card-coral)' ? '2px solid black' : 'none',
+                            outlineOffset: '2px'}} onClick={() =>
+                        setFormData({...formData, color: 'var(--card-coral)'})}>
+
+                        </div>
+                        <div className={styles.color} style={{backgroundColor: 'var(--card-peach)',
+                            outline: formData.color === 'var(--card-peach)' ? '2px solid black' : 'none',
+                            outlineOffset: '2px'}} onClick={() =>
+                        setFormData({...formData, color: 'var(--card-peach)'})}>
+
+                        </div>
+                        <div className={styles.color} style={{backgroundColor: 'var(--card-lemon)',
+                        outline: formData.color === 'var(--card-lemon)' ? '2px solid black' : 'none',
+                        outlineOffset: '2px'}} onClick={() =>
+                            setFormData({...formData, color: 'var(--card-lemon)'})}>
+
+                        </div>
+                        <div className={styles.color} style={{backgroundColor: 'var(--card-lavender)',
+                            outline: formData.color === 'var(--card-lavender)' ? '2px solid black' : 'none',
+                            outlineOffset: '2px'}} onClick={() =>
+                            setFormData({...formData, color: 'var(--card-lavender)'})}>
+
+                        </div>
+                        <div className={styles.color} style={{backgroundColor: 'var(--card-mint)',
+                            outline: formData.color === 'var(--card-mint)' ? '2px solid black' : 'none',
+                            outlineOffset: '2px'}} onClick={() =>
+                            setFormData({...formData, color: 'var(--card-mint)'})}>
+
+                        </div>
+                        <div className={styles.color} style={{backgroundColor: 'var(--card-sky)',
+                            outline: formData.color === 'var(--card-sky)' ? '2px solid black' : 'none',
+                            outlineOffset: '2px'}} onClick={() =>
+                            setFormData({...formData, color: 'var(--card-sky)'})}>
+
                         </div>
                     </div>
 

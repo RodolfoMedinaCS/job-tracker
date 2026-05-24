@@ -1,71 +1,33 @@
 
 
-.applicationCard{
-    display: flex;
-    justify-content: space-between;
-    padding: 0 16px;
-    border-radius: 10px;
-    background-color: #ffffff;
-    align-items: center;
-
-    width: 420px;
-    height: 110px;
-
-    box-sizing: border-box;
-
-    color: black;
-    text-decoration: none;
-}
-
-.jobTitle{
-    font-size: 24px;
-}
-
-.metaData{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.applicationCard:hover{
-    background-color: #41c957;
-}
-
-
 /* new cards */
 .outerCard{
     width: 300px;
     height: 240px;
-    background-color: #fbc3bb;
-    border: 1px solid #fbc3bb;
     border-radius: 25px;
+
+    overflow: hidden;
+    background-color: var(--card-color);
 }
 .outerCard:hover{
-    background-color: #ffa498;
+
     transition: background-color 0.3s ease;
     cursor: pointer;
+    filter: brightness(0.9);
 }
 .outerCard postedDate:hover{
     color: #c51900
 }
 
-.postedDate{
-    display: flex;
-    justify-content: center;
-    padding-top: 8px;
-    font-size: 15px;
-    font-weight: lighter;
-    color: #ff2000
-}
 .innerContainer{
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
     gap: 2rem;
     padding: 15px;
-    margin: 7px;
+    margin: 6px 7px;
     border-radius: 25px;
     background-color: white;
+
 }
 
 .companyName{
@@ -92,3 +54,17 @@
     display: flex;
     gap: 3px;
 }
+.postedDate{
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+    font-size: 15px;
+    font-weight: lighter;
+    color: #ff2000
+}
+
+.badgeInterview { background: #fef3c7; color: #92400e; }
+.badgeSubmitted { background: #dbeafe; color: #1e40af; }
+.badgeOffer     { background: #dcfce7; color: #166534; }
+.badgeRejected  { background: #f1f5f9; color: #475569; }
+.badgeHired     { background: #d1fae5; color: #065f46; }
