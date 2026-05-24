@@ -30,7 +30,25 @@ public class JobApplicationService {
                 .getAuthentication()
                 .getName();
         User user = userRepository.findByEmail(email).orElseThrow();
-        return jobApplicationRepository.findByUser(user);
+        return jobApplicationRepository.findByUser(user)
+                .stream()
+                .map(application -> new JobApplicationDTO(
+                        application.getCompany(),
+                        application.getCompanyWebsite(),
+                        application.getLocation(),
+                        application.getWorkType(),
+                        application.getJobTitle(),
+                        application.getJobType(),
+                        application.getJobUrl(),
+                        application.getDateApplied(),
+                        application.getStatus(),
+                        application.getSalaryMin(),
+                        application.getSalaryMax(),
+                        application.getRecruiterName(),
+                        application.getRecruiterEmail(),
+                        application.getNotes(),
+                        application.getId()))
+                .toList();
     }
 
 
@@ -41,9 +59,11 @@ public class JobApplicationService {
                 .getName();
         User user = userRepository.findByEmail(email).orElseThrow();
         application.setUser(user);
-            jobApplicationRepository.save(application);
-        return new JobApplicationDTO(application.getCompany(), application.getJobTitle(),
-                application.getStatus(), application.getDateApplied(), application.getNotes(),application.getId());
+        jobApplicationRepository.save(application);
+        return new JobApplicationDTO(application.getCompany(), application.getCompanyWebsite(),application.getLocation(),
+                application.getWorkType(),application.getJobTitle(),application.getJobType(),application.getJobUrl(),
+                application.getDateApplied(), application.getStatus(), application.getSalaryMin(),application.getSalaryMax(),
+                application.getRecruiterName(), application.getRecruiterEmail(), application.getNotes(),application.getId());
     }
 
     //delete job application
@@ -79,6 +99,34 @@ public class JobApplicationService {
         if(jobApplication.getNotes() != null){
             existing.setNotes(jobApplication.getNotes());
         }
+        if(jobApplication.getCompanyWebsite() != null){
+            existing.setCompanyWebsite(jobApplication.getCompanyWebsite());
+        }
+        if(jobApplication.getLocation() != null){
+            existing.setLocation(jobApplication.getLocation());
+        }
+        if(jobApplication.getWorkType() != null){
+            existing.setWorkType(jobApplication.getWorkType());
+        }
+        if(jobApplication.getJobType() != null){
+            existing.setJobType(jobApplication.getJobType());
+        }
+        if(jobApplication.getJobUrl() != null){
+            existing.setJobUrl(jobApplication.getJobUrl());
+        }
+        if(jobApplication.getSalaryMin() != null){
+            existing.setSalaryMin(jobApplication.getSalaryMin());
+        }
+        if(jobApplication.getSalaryMax() != null){
+            existing.setSalaryMax(jobApplication.getSalaryMax());
+        }
+        if(jobApplication.getRecruiterName() != null){
+            existing.setRecruiterName(jobApplication.getRecruiterName());
+        }
+        if(jobApplication.getRecruiterEmail() != null){
+            existing.setRecruiterEmail(jobApplication.getRecruiterEmail());
+        }
+
         jobApplicationRepository.save(existing);
     }
 
@@ -104,7 +152,9 @@ public class JobApplicationService {
 
         User user = userRepository.findByEmail(email).orElseThrow();
         JobApplication application = jobApplicationRepository.findByIdAndUser(id,user).orElseThrow();
-        return new JobApplicationDTO(application.getCompany(), application.getJobTitle(),
-                application.getStatus(), application.getDateApplied(), application.getNotes(),application.getId());
+        return new JobApplicationDTO(application.getCompany(), application.getCompanyWebsite(),application.getLocation(),
+                application.getWorkType(),application.getJobTitle(),application.getJobType(),application.getJobUrl(),
+                application.getDateApplied(), application.getStatus(), application.getSalaryMin(),application.getSalaryMax(),
+                application.getRecruiterName(), application.getRecruiterEmail(), application.getNotes(),application.getId());
     }
 }

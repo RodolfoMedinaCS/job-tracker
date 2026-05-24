@@ -1,25 +1,58 @@
 package com.rodolfo.jobtracker.DTO;
 
 import com.rodolfo.jobtracker.Entity.ApplicationStatus;
+import com.rodolfo.jobtracker.Entity.JobType;
+import com.rodolfo.jobtracker.Entity.WorkType;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 
 import java.time.LocalDate;
 
 public class JobApplicationDTO {
 
-    private String company;
-    private String jobTitle;
-    private ApplicationStatus status;
-    private LocalDate dateApplied;
-    private String notes;
     private Long id;
 
-    public JobApplicationDTO(String company, String jobTitle, ApplicationStatus status,
-                             LocalDate dateApplied, String notes, Long id){
-        this.company = company;
-        this.jobTitle = jobTitle;
-        this.status = status;
-        this.dateApplied = dateApplied;
-        this.notes = notes;
+    //company
+    private String company;
+    private String companyWebsite;
+    private String location;
+    private WorkType workType; // eventually enum
+
+    //position
+    private String jobTitle;
+    private JobType jobType; //eventually enum
+    private String jobUrl;
+
+    //application details
+    private LocalDate dateApplied;
+    private ApplicationStatus status;
+    private Integer salaryMin;
+    private Integer salaryMax;
+
+    //recruiter contact
+    private String recruiterName;
+    private String recruiterEmail;
+
+    //notes
+    private String notes;
+
+    public JobApplicationDTO(String company, String companyWebsite, String location, WorkType workType, String jobTitle,
+                          JobType jobType, String jobUrl, LocalDate dateApplied, ApplicationStatus status, int salaryMin,
+                          int salaryMax, String recruiterName, String recruiterEmail, String notes, Long id) {
+        this.company = company; //
+        this.companyWebsite = companyWebsite; //
+        this.location = location;//
+        this.workType = workType; //***
+        this.jobTitle = jobTitle; //
+        this.jobType = jobType; // ***
+        this.jobUrl = jobUrl; //
+        this.dateApplied = dateApplied; //
+        this.status = status; // ***
+        this.salaryMin = salaryMin; //
+        this.salaryMax = salaryMax; //
+        this.recruiterName = recruiterName;//
+        this.recruiterEmail = recruiterEmail;//
+        this.notes = notes; //
         this.id = id;
     }
 
@@ -29,6 +62,15 @@ public class JobApplicationDTO {
     public ApplicationStatus getStatus(){return status;}
     public LocalDate getDateApplied(){return dateApplied;}
     public String getNotes(){return notes;}
+    public String getCompanyWebsite(){return companyWebsite;}
+    public String getLocation(){return location;}
+    public String getJobUrl(){return jobUrl;}
+    public Integer getSalaryMin(){return salaryMin;}
+    public Integer getSalaryMax(){return salaryMax;}
+    public String getRecruiterName(){return recruiterName;}
+    public String getRecruiterEmail(){return recruiterEmail;}
+    public WorkType getWorkType(){return workType;}
+    public JobType getJobType(){return jobType;}
 
     public Long getId() {
         return id;
@@ -40,6 +82,15 @@ public class JobApplicationDTO {
     public void setStatus(ApplicationStatus status){this.status = status;}
     public void setDateApplied(LocalDate dateApplied){this.dateApplied = dateApplied;}
     public void setNotes(String notes){this.notes = notes;}
+    public void setCompanyWebsite(String companyWebsite){this.companyWebsite = companyWebsite;}
+    public void setLocation(String location){this.location = location;}
+    public void setJobUrl(String jobUrl){this.jobUrl = jobUrl;}
+    public void setSalaryMin(Integer salaryMin){this.salaryMin = salaryMin;}
+    public void setSalaryMax(Integer salaryMax){this.salaryMax = salaryMax;}
+    public void setRecruiterName(String recruiterName){this.recruiterName = recruiterName;}
+    public void setRecruiterEmail(String recruiterEmail) {this.recruiterEmail = recruiterEmail;}
+    public void setWorkType(WorkType workType){this.workType = workType;}
+    public void setJobTitle(JobType jobType){this.jobType = jobType;}
 
     public void setId(Long id) {
         this.id = id;

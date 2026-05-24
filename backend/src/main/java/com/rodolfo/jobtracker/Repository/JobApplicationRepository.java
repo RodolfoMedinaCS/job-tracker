@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public interface JobApplicationRepository extends JpaRepository<JobApplication, Long> {
     int countByStatus(ApplicationStatus status, User user);
-    List<JobApplicationDTO> findByUser(User user);
+    List<JobApplication> findByUser(User user);
     Optional<JobApplication> findByIdAndUser(Long id, User user);
 
     void deleteByIdAndUser(Long id, User user);

@@ -5,6 +5,7 @@ import com.rodolfo.jobtracker.DTO.JobApplicationDTO;
 import com.rodolfo.jobtracker.DTO.Stats;
 import com.rodolfo.jobtracker.Entity.JobApplication;
 import com.rodolfo.jobtracker.Service.JobApplicationService;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,6 +39,7 @@ public class JobApplicationController {
     }
 
     //delete application
+    @Transactional
     @DeleteMapping("/api/v1/applications/{id}")
     public void deleteApplication(@PathVariable Long id){
         jobApplicationService.deleteJobApplication(id);
