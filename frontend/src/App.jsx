@@ -6,6 +6,7 @@ import ApplicationsPage from "./pages/ApplicationsPage/ApplicationsPage.jsx";
 import Dashboard from "./pages/Dashboard/Dashboard.jsx";
 import ContentWindow from "./layout/ContentWindow/ContentWindow.jsx";
 import AddApplication from "./pages/AddApplication/AddApplication.jsx";
+import Account from "./pages/Account/Account.jsx";
 
 function App(){
 
@@ -14,6 +15,7 @@ function App(){
           <Routes>
               <Route element={<ContentWindow />}>
                   <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path={"/Account"} element={<Account/>}> </Route>
                   <Route path="/applications" element={<ApplicationsPage />} />
                   <Route path="/applications/:id" element={<ApplicationDetails/>} />
                   <Route path="/add-application" element={<AddApplication/>}></Route>

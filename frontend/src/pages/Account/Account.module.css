@@ -1,0 +1,150 @@
+.accountPage{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+.flexContainer{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+
+    padding-bottom: 5rem;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 2rem;
+}
+.headerName{
+    font-size: 30px;
+}
+
+/* All sections*/
+.detailContainer{
+    border: 1px solid black;
+    height: auto;
+    border-radius: 10px;
+    background-color: white;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2.0rem;
+}
+.sectionTitle{
+    font-size: 20px;
+    font-weight: 400;
+}
+.subSectionTitle{
+    font-size: 15px;
+    color: #9f9f9f
+
+}
+
+.detLabel{
+    font-size: 15px;
+}
+.detInput{
+    all: unset;
+    border: 1px solid grey;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+/* profile section*/
+.profileHeader{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+.profMiddle{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+}
+.subTop,
+.subBot{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.proMidBot{
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+}
+.proMidTop{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.picture{
+    background-color: black;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+.detailBttn{
+    all : unset;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.detailBttn:hover{
+    transform: scale(1.05);
+}
+.detailBttn:active{
+    transform: scale(0.95);
+}
+.changePhotoContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+.profBot{
+    display: flex;
+    justify-content: flex-end;
+}
+/* Password Section*/
+.delContainer{
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid #ff0c0c;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+.delTop{
+    background-color: #ffd6d6;
+    width: 100%;
+    padding: 20px;
+    color: #c40000;
+}
+.delBot {
+    background-color: white;
+    width: 100%;
+    padding: 20px;
+}
+.subDelBot{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}

@@ -21,16 +21,24 @@
 /*buttons!*/
 .addBttns{
     all : unset;
-    padding: 20px 25px 20px 25px;
+    padding: 15px 20px;
     border-radius: 8px;
     color: white;
     background-color: #1d4ed8;
     border-color: #1d4ed8;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+.addBttns:hover{
+    background-color: #15399f;
+    transform: scale(1.05);
 }
 .appOptions{
     display: flex;
     gap: 2rem;
     margin: 30px
+
 }
 
 /*Containers */

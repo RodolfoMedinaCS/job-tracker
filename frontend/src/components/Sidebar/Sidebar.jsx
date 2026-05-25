@@ -54,12 +54,12 @@ function Sidebar(){
                             <span>Account</span>
                         </span>
                     </NavLink>
-                    <Link onClick={handleLogout} href="#">
+                    <div className={styles.logOut} onClick={handleLogout} href="#">
                         <span className={styles.menuItems}>
                             <IoLogOut className={styles.menuIcon}></IoLogOut>
                             <span>Log out</span>
                         </span>
-                    </Link>
+                    </div>
                 </div>
 
             </div>

@@ -7,13 +7,10 @@
     border-radius: 25px;
 
     overflow: hidden;
-    background-color: var(--card-color);
 }
 .outerCard:hover{
-
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease;
     cursor: pointer;
-    filter: brightness(0.9);
 }
 .outerCard postedDate:hover{
     color: #c51900
@@ -48,6 +45,7 @@
     padding: 5px 9px 5px 9px;
     border-radius: 8px;
     color: #6c4bd3;
+    cursor: pointer;
 }
 
 .jobTags{
@@ -68,3 +66,4 @@
 .badgeOffer     { background: #dcfce7; color: #166534; }
 .badgeRejected  { background: #f1f5f9; color: #475569; }
 .badgeHired     { background: #d1fae5; color: #065f46; }
+

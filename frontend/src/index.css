@@ -31,14 +31,24 @@
     --color-rejected-bg:    #f1f5f9;
     --color-rejected-text:  #475569;
 
-
     /*Application card colors*/
-    --card-coral:    #fbd0c5;
-    --card-peach:    #fce9d6;
-    --card-lemon:    #fef2c0;
-    --card-lavender: #dbd2f3;
-    --card-mint:     #c9e8d4;
-    --card-sky:      #cce5fb;
+    --card-coral:            #fbd0c5;
+    --card-coral-hover:      #f7b5a3;
+
+    --card-peach:            #fce9d6;
+    --card-peach-hover:      #f9d4b0;
+
+    --card-lemon:            #fef2c0;
+    --card-lemon-hover:      #fce98a;
+
+    --card-lavender:         #dbd2f3;
+    --card-lavender-hover:   #c4b8ec;
+
+    --card-mint:             #c9e8d4;
+    --card-mint-hover:       #a8d9b8;
+
+    --card-sky:              #cce5fb;
+    --card-sky-hover:        #a8d4f7;
 }
 
 
