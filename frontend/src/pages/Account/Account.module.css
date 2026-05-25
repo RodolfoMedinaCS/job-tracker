@@ -132,6 +132,7 @@
 .profBot{
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
 /* Password Section*/
 .delContainer{
@@ -171,4 +172,23 @@
 }
 .delBot .detailBttn:hover {
     background-color: #b91c1c;
+}
+
+.currentPassword{
+    display: flex;
+    flex-direction: column;
+}
+
+/*Warnings*/
+.errorWarning{
+    font-size: 13px;
+    color: red;
+    padding-top: 5px;
+    padding-left: 2px;
+}
+/* Successfully */
+.success{
+    font-size: 13px;
+    color: #00d300;
+    padding-right: 10px;
 }

@@ -1,8 +1,26 @@
 import styles from "./Account.module.css"
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 function Account(){
     const token = localStorage.getItem("token");
+    const [passwordError, setPasswordError] = useState("");
+    const [noMatch, setNoMatch] = useState("");
+    const [detailsChanged, setDetailsChanged] = useState("");
+    const [userProfile, setUserProfile] = useState(null);
+
+    useEffect(() => {
+        async function fetchProfile(){
+            const response = await fetch("http://localhost:8080/api/v1/users/profile",{
+                method : "GET",
+                headers : {
+                    "Authorization" : `Bearer ${token}`
+                }
+            })
+            const data = await response.json();
+            setUserProfile(data);
+        }
+        fetchProfile();
+    },[]);
 
     const passwordCheck = {
         newPassword : "",
@@ -10,11 +28,19 @@ function Account(){
         confirmPassword: ""
     }
 
+    const changeNameAndEmail = {
+        name : "",
+        email: ""
+    }
+
+    const[changeDetails, setDetails] = useState(changeNameAndEmail);
     const[passwordChange, setPasswordChange] = useState(passwordCheck)
 
     async function handlePassword(){
+        setNoMatch("");
+        setPasswordError("");
         if(passwordChange.newPassword !== passwordChange.confirmPassword){
-            alert("Passwords do not match");
+            setNoMatch("Password doesn't match");
             return;
         }
         await changePassword();
@@ -36,13 +62,36 @@ function Account(){
             })
 
             if(!response.ok){
-                throw new Error("Failed to update password");
+                setPasswordError("Current password is incorrect");
+                return;
             }
 
             alert("Password Updated");
         }catch(error){
             console.log(error);
 
+        }
+
+    }
+
+    async function changeEmailOrName(){
+        try{
+            const response = await fetch("http://localhost:8080/api/v1/users/details",{
+                method : "PATCH",
+                headers : {
+                    "Content-Type" : "application/json",
+                    "Authorization" : `Bearer ${token}`
+                },
+                body: JSON.stringify(changeDetails)
+            })
+
+            if(!response.ok){
+                throw new Error("Failed!");
+            }
+            setDetailsChanged("details successfully changed!");
+
+        }catch(error){
+            console.log(error);
         }
 
     }
@@ -68,24 +117,27 @@ function Account(){
 
                                 </div>
                                 <div className={styles.changePhotoContainer}>
-                                    <p>Rodolfo</p>
+                                    <p>{userProfile?.name}</p>
                                     <button className={styles.detailBttn}>Change photo</button>
                                 </div>
                             </div>
                             <div className={styles.proMidBot}>
                                 <div className={styles.subTop}>
                                     <label className={styles.detLabel}>Full Name</label>
-                                    <input className={styles.detInput} type="text" placeholder="Jane Doe"/>
+                                    <input className={styles.detInput} type="text" placeholder="Jane Doe" onChange={(e) =>
+                                    setDetails({...changeDetails, name: e.target.value})}/>
                                 </div>
                                 <div className={styles.subBot}>
                                     <label className={styles.detLabel}>Email</label>
-                                    <input className={styles.detInput} type="email" placeholder="Jane@gmail.com"/>
+                                    <input className={styles.detInput} type="email" placeholder="Jane@gmail.com" onChange={(e) =>
+                                    setDetails({...changeDetails, email: e.target.value})}/>
                                 </div>
                             </div>
                         </div>
                         <hr/>
                         <div className={styles.profBot}>
-                            <button className={styles.detailBttn}>Save Changes</button>
+                            {detailsChanged && <p className={styles.success}>Details saved successfully!</p>}
+                            <button className={styles.detailBttn} onClick={changeEmailOrName}>Save Changes</button>
                         </div>
                     </div>
 
@@ -100,17 +152,20 @@ function Account(){
                             <label className={styles.detLabel}>Current Password</label>
                             <input placeholder="••••••••" className={styles.detInput} type="password" onChange={(e) =>
                             setPasswordChange({...passwordChange, currentPassword: e.target.value})}/>
+                            {passwordError && <p className={styles.errorWarning}>Current password is incorrect</p>}
                         </div>
                         <div className={styles.proMidBot}>
                             <div className={styles.subTop}>
                                 <label className={styles.detLabel}>New Password</label>
                                 <input placeholder="••••••••" className={styles.detInput} type="password" onChange={(e) =>
                                 setPasswordChange({...passwordChange,newPassword : e.target.value})}/>
+                                {noMatch && <p className={styles.errorWarning}>Passwords don't match</p>}
                             </div>
                             <div className={styles.subBot}>
                                 <label className={styles.detLabel}>Confirm new password</label>
                                 <input placeholder="••••••••" className={styles.detInput} type="password" onChange={(e) =>
                                 setPasswordChange({...passwordChange,confirmPassword: e.target.value})}/>
+                                {noMatch && <p className={styles.errorWarning}>Passwords don't match</p>}
                             </div>
                         </div>
 

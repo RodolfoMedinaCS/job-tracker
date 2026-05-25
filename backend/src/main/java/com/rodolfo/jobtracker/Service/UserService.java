@@ -1,10 +1,7 @@
 package com.rodolfo.jobtracker.Service;
 
 
-import com.rodolfo.jobtracker.DTO.UpdateEmailDTO;
-import com.rodolfo.jobtracker.DTO.UpdateNameDTO;
-import com.rodolfo.jobtracker.DTO.UpdatePasswordDTO;
-import com.rodolfo.jobtracker.DTO.UserProfileDTO;
+import com.rodolfo.jobtracker.DTO.*;
 import com.rodolfo.jobtracker.Entity.User;
 import com.rodolfo.jobtracker.Repository.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -37,15 +34,18 @@ public class UserService {
 
 
 
-    //update users name
-    public void updateName(UpdateNameDTO updateNameDTO) {
+    //update users name and email
+    public void updateNamAndEmail(UpdateNameAndEmailDTO updateNameAndEmailDTO) {
         String email = SecurityContextHolder.getContext()
                 .getAuthentication()
                 .getName();
 
         User existingUser = userRepository.findByEmail(email).orElseThrow();
-        if(updateNameDTO.getName() != null){
-            existingUser.setName(updateNameDTO.getName());
+        if(updateNameAndEmailDTO.getEmail() != null && !updateNameAndEmailDTO.getEmail().isEmpty()){
+            existingUser.setEmail(updateNameAndEmailDTO.getEmail());
+        }
+        if(updateNameAndEmailDTO.getName() !=  null && !updateNameAndEmailDTO.getName().isEmpty()){
+            existingUser.setName(updateNameAndEmailDTO.getName());
         }
         userRepository.save(existingUser);
     }
@@ -64,13 +64,4 @@ public class UserService {
         userRepository.save(existingUser);
     }
 
-    //update users email
-    public void updateEmail(UpdateEmailDTO updateEmailDTO) {
-        String email = SecurityContextHolder.getContext()
-                .getAuthentication()
-                .getName();
-        User user = userRepository.findByEmail(email).orElseThrow();
-        user.setEmail(updateEmailDTO.getEmail());
-        userRepository.save(user);
-    }
 }

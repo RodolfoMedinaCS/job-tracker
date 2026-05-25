@@ -21,17 +21,12 @@ public class UserController {
         return userService.getUserProfile();
     }
 
-    //update users name
-    @PatchMapping("/api/v1/users/name")
-    public void updateName(@RequestBody UpdateNameDTO updateNameDTO){
-        userService.updateName(updateNameDTO);
+    //update users name and email
+    @PatchMapping("/api/v1/users/details")
+    public void updateNameAndEmail(@RequestBody UpdateNameAndEmailDTO updateNameAndEmailDTO){
+        userService.updateNamAndEmail(updateNameAndEmailDTO);
     }
 
-    //update users email
-    @PatchMapping("/api/v1/users/email")
-    public void updateEmail(@RequestBody UpdateEmailDTO updateEmailDTO){
-        userService.updateEmail(updateEmailDTO);
-    }
 
     //update users password
     @PatchMapping("/api/v1/users/password")

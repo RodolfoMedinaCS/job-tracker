@@ -1,12 +1,16 @@
 package com.rodolfo.jobtracker.DTO;
 
-public class UpdateNameDTO {
+public class UpdateNameAndEmailDTO {
     private String name;
+    private String email;
 
     public void setName(String name) {
         this.name = name;
     }
+    public void setEmail(String email) {this.email = email;}
+
     public String getName(){
         return name;
     }
+    public String getEmail() {return email;}
 }
