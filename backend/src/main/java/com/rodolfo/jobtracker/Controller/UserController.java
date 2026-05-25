@@ -34,6 +34,12 @@ public class UserController {
         userService.updatePassword(updatePasswordDTO);
     }
 
+    //Delete user Account
+    @DeleteMapping("/api/v1/users/deleteAccount")
+    public void deleteAccount(){
+        userService.deleteUserAccount();
+    }
+
 
 
 

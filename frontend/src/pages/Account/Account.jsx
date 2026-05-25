@@ -1,5 +1,7 @@
 import styles from "./Account.module.css"
 import {useEffect, useState} from "react";
+import {nashorn} from "globals";
+import {useNavigate} from "react-router-dom";
 
 function Account(){
     const token = localStorage.getItem("token");
@@ -7,6 +9,9 @@ function Account(){
     const [noMatch, setNoMatch] = useState("");
     const [detailsChanged, setDetailsChanged] = useState("");
     const [userProfile, setUserProfile] = useState(null);
+    const [confirm, setConfirm] = useState(false);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchProfile(){
@@ -74,6 +79,28 @@ function Account(){
 
     }
 
+    async function accountDeletion(){
+        try{
+            const response = await fetch("http://localhost:8080/api/v1/users/deleteAccount",{
+                method: "DELETE",
+                headers: {
+                    "Authorization" : `Bearer ${token}`
+                }
+            })
+
+            if(!response.ok){
+                alert("Failed to delete account!")
+            }
+
+            localStorage.removeItem("token");
+            navigate("/login");
+
+        }catch(error){
+            console.log(error)
+        }
+
+    }
+
     async function changeEmailOrName(){
         try{
             const response = await fetch("http://localhost:8080/api/v1/users/details",{
@@ -98,6 +125,18 @@ function Account(){
 
     return (
         <>
+            {confirm && (
+                <div className={styles.modal}>
+                    <div className={styles.modalBox}>
+                        <h3 style={{color: "red"}}>Are you sure?</h3>
+                        <p>This action cannot be undone</p>
+                        <div className={styles.modalActions}>
+                            <button onClick={accountDeletion} className={styles.btnYes}>Confirm</button>
+                            <button onClick={() => setConfirm(false)} className={styles.btnCancel}>Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            )}
             <div className={styles.accountPage}>
                 <div className={styles.flexContainer}>
                     <div className={styles.header}>
@@ -184,9 +223,8 @@ function Account(){
                             <p className={styles.sectionTitle}>Delete account</p>
                             <div className={styles.subDelBot}>
                                 <p className={styles.subSectionTitle}>All your applications and data will be permanently deleted</p>
-                                <button className={styles.detailBttn}>Delete account</button>
+                                <button onClick={() => {setConfirm(true)}} className={styles.detailBttn}>Delete account</button>
                             </div>
-
                         </div>
                     </div>
                 </div>

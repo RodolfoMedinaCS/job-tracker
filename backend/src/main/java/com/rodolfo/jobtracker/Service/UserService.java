@@ -3,6 +3,7 @@ package com.rodolfo.jobtracker.Service;
 
 import com.rodolfo.jobtracker.DTO.*;
 import com.rodolfo.jobtracker.Entity.User;
+import com.rodolfo.jobtracker.Repository.JobApplicationRepository;
 import com.rodolfo.jobtracker.Repository.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -15,11 +16,13 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final JobApplicationRepository jobApplicationRepository;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder){
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, JobApplicationRepository jobApplicationRepository){
 
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.jobApplicationRepository = jobApplicationRepository;
     }
 
     //get users profile info
@@ -64,4 +67,10 @@ public class UserService {
         userRepository.save(existingUser);
     }
 
+    public void deleteUserAccount() {
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userRepository.findByEmail(email).orElseThrow();
+        jobApplicationRepository.deleteByUser(user);
+        userRepository.delete(user);
+    }
 }
