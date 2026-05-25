@@ -5,6 +5,7 @@
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
+    background-color: #f0f4ff;
 }
 .flexContainer{
     width: 60%;
@@ -23,11 +24,15 @@
 }
 .headerName{
     font-size: 30px;
+    color: #64748b;
+}
+.subHeader{
+    color: #64748b;
 }
 
 /* All sections*/
 .detailContainer{
-    border: 1px solid black;
+    border: 1px solid #e2e8f0;
     height: auto;
     border-radius: 10px;
     background-color: white;
@@ -38,25 +43,33 @@
     gap: 2.0rem;
 }
 .sectionTitle{
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 15px;
+    font-weight: 500;
+    color: #0f172a;
 }
 .subSectionTitle{
     font-size: 15px;
-    color: #9f9f9f
+    color: #94a3b8;
 
 }
 
 .detLabel{
-    font-size: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #475569;  /* add this */
+    margin-bottom: 4px;
+
 }
 .detInput{
     all: unset;
-    border: 1px solid grey;
+    border: 1px solid #e2e8f0;
+    background-color: #f8fafc;
+    color: #0f172a;
     padding: 10px;
     border-radius: 8px;
     width: 100%;
     box-sizing: border-box;
+    font-size: 14px;
 
 }
 /* profile section*/
@@ -89,7 +102,7 @@
     align-items: center;
 }
 .picture{
-    background-color: black;
+    background-color: #dbeafe;
     width: 50px;
     height: 50px;
     border-radius: 100%;
@@ -98,9 +111,9 @@
     all : unset;
     box-sizing: border-box;
     padding: 10px 15px;
-    background-color: black;
+    background-color: #1d4ed8;
     color: white;
-    border-radius: 10px;
+    border-radius: 8px;
 
     transition: all 0.3s ease;
     cursor: pointer;
@@ -132,10 +145,10 @@
     overflow: hidden;
 }
 .delTop{
-    background-color: #ffd6d6;
+    background-color: #fff5f5;
     width: 100%;
     padding: 20px;
-    color: #c40000;
+    color: #dc2626;
 }
 .delBot {
     background-color: white;
@@ -147,4 +160,15 @@
     align-items: center;
     justify-content: space-between;
 
+}
+
+.delBot .sectionTitle {
+    color: #0f172a;
+    font-size: 14px;
+}
+.delBot .detailBttn {
+    background-color: #dc2626;
+}
+.delBot .detailBttn:hover {
+    background-color: #b91c1c;
 }

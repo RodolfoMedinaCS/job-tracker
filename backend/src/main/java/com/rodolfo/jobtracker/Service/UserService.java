@@ -8,6 +8,8 @@ import com.rodolfo.jobtracker.DTO.UserProfileDTO;
 import com.rodolfo.jobtracker.Entity.User;
 import com.rodolfo.jobtracker.Repository.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -54,7 +56,11 @@ public class UserService {
                 .getAuthentication()
                 .getName();
         User existingUser = userRepository.findByEmail(email).orElseThrow();
-        existingUser.setPassword(passwordEncoder.encode(updatePasswordDTO.getPassword()));
+        if(!passwordEncoder.matches(updatePasswordDTO.getCurrentPassword(), existingUser.getPassword())){
+            throw new RuntimeException("Current password is incorrect");
+        }
+
+        existingUser.setPassword(passwordEncoder.encode(updatePasswordDTO.getNewPassword()));
         userRepository.save(existingUser);
     }
 

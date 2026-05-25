@@ -1,7 +1,51 @@
 import styles from "./Account.module.css"
+import {useState} from "react";
 
 function Account(){
+    const token = localStorage.getItem("token");
 
+    const passwordCheck = {
+        newPassword : "",
+        currentPassword : "",
+        confirmPassword: ""
+    }
+
+    const[passwordChange, setPasswordChange] = useState(passwordCheck)
+
+    async function handlePassword(){
+        if(passwordChange.newPassword !== passwordChange.confirmPassword){
+            alert("Passwords do not match");
+            return;
+        }
+        await changePassword();
+    }
+    async function changePassword(){
+
+        try{
+
+            const response = await fetch("http://localhost:8080/api/v1/users/password",{
+                method : "PATCH",
+                headers: {
+                    "Content-Type" : "application/json",
+                    "Authorization" : `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    currentPassword: passwordChange.currentPassword,
+                    newPassword: passwordChange.newPassword
+                })
+            })
+
+            if(!response.ok){
+                throw new Error("Failed to update password");
+            }
+
+            alert("Password Updated");
+        }catch(error){
+            console.log(error);
+
+        }
+
+    }
 
     return (
         <>
@@ -9,7 +53,7 @@ function Account(){
                 <div className={styles.flexContainer}>
                     <div className={styles.header}>
                         <p className={styles.headerName}>Account</p>
-                        <p>Manage your account and profile settings</p>
+                        <p className={styles.subHeader}>Manage your account and profile settings</p>
                     </div>
 
                     <div className={styles.detailContainer}>
@@ -54,22 +98,25 @@ function Account(){
                         </div>
                         <div className={styles.currentPassword}>
                             <label className={styles.detLabel}>Current Password</label>
-                            <input className={styles.detInput} type="password"/>
+                            <input placeholder="••••••••" className={styles.detInput} type="password" onChange={(e) =>
+                            setPasswordChange({...passwordChange, currentPassword: e.target.value})}/>
                         </div>
                         <div className={styles.proMidBot}>
                             <div className={styles.subTop}>
                                 <label className={styles.detLabel}>New Password</label>
-                                <input className={styles.detInput} type="password"/>
+                                <input placeholder="••••••••" className={styles.detInput} type="password" onChange={(e) =>
+                                setPasswordChange({...passwordChange,newPassword : e.target.value})}/>
                             </div>
                             <div className={styles.subBot}>
                                 <label className={styles.detLabel}>Confirm new password</label>
-                                <input className={styles.detInput} type="password"/>
+                                <input placeholder="••••••••" className={styles.detInput} type="password" onChange={(e) =>
+                                setPasswordChange({...passwordChange,confirmPassword: e.target.value})}/>
                             </div>
                         </div>
 
                         <hr/>
                         <div className={styles.profBot}>
-                            <button className={styles.detailBttn}>Update password</button>
+                            <button onClick={handlePassword} className={styles.detailBttn}>Update password</button>
                         </div>
                     </div>
 
@@ -87,7 +134,6 @@ function Account(){
 
                         </div>
                     </div>
-
                 </div>
             </div>
 
