@@ -1,0 +1,40 @@
+.card{
+    width: 300px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 15px;
+}
+/*TOP SECTION*/
+.top{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/*top left*/
+.count{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.label{
+    width:100px;
+}
+.value{
+    font-size: 50px;
+}
+/*top right*/
+.badgeContainer{
+    padding: 7px;
+    border-radius: 10px;
+    font-size: 25px;
+    height: auto;
+    border: 1px solid black;
+    width: 100%;
+}
+
+/*Graph container*/
+.graphContainer{
+    border: 1px solid black;
+}

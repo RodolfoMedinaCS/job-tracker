@@ -1,0 +1,12 @@
+.statCardContaniner{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    height: auto;
+    width: 100%;
+}
+.dashboardBody{
+    border: 1px solid black;
+    height: 100%;
+}

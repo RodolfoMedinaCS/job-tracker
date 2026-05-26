@@ -35,6 +35,9 @@ function SidePanel({job, onClose}){
 
     return(
         <>
+            {isOpen && (
+                <div className={styles.overlay} onClick={onClose} />
+            )}
             <div className={`${styles.panel} ${isOpen ? styles.open : ""}`}>
                 {job && (
                     <>
