@@ -72,7 +72,10 @@ function appCards({job, onCardClick}){
 
                         <div className={styles.jobTitle}>
                             <h3>{job.jobTitle}</h3>
-                            <p>{`$${job.salaryMin.toLocaleString()}` + '-' + `$${job.salaryMax.toLocaleString()}`}</p>
+                            <p>{job.salaryMin && job.salaryMax
+                                ? `$${job.salaryMin.toLocaleString()} - $${job.salaryMax.toLocaleString()}`
+                                : "Salary not listed"}
+                            </p>
                         </div>
 
                         <div className={styles.jobTags}>
