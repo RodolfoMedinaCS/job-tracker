@@ -5,9 +5,15 @@ Users can add, organize, and monitor their job search progress with status track
 recruiter contact management, and a personalized color coded card system.
 
 ## Demo
-<img width="3024" height="1720" alt="image" src="https://github.com/user-attachments/assets/3808dff2-dba0-4c3a-ab40-29b56b685685" />
-<img width="3024" height="1722" alt="image" src="https://github.com/user-attachments/assets/746e8f03-33ab-4bb4-b0a7-06e5a88db4a0" />
-<img width="3024" height="1722" alt="image" src="https://github.com/user-attachments/assets/7112cb00-b4e9-475e-b2f8-5b2a66a4d5d7" />
+<img width="3024" height="1722" alt="image" src="https://github.com/user-attachments/assets/1a1ff11b-09fe-4115-a786-ef5c81399f4b" />
+
+<img width="3024" height="1722" alt="image" src="https://github.com/user-attachments/assets/c0a6166f-3669-4cb1-ad99-cb824bd6d10f" />
+
+<img width="3024" height="1722" alt="image" src="https://github.com/user-attachments/assets/7fe86a95-a22f-45d4-81d9-3d56aa4872ee" />
+
+
+<img width="3024" height="1722" alt="image" src="https://github.com/user-attachments/assets/f33d8d32-0c8a-4781-9135-fd9694fcada1" />
+
 <img width="3024" height="1722" alt="image" src="https://github.com/user-attachments/assets/ea0baf9a-fb34-4287-a652-627982fa13f6" />
 
 ## Features
