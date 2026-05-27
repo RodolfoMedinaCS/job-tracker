@@ -10,7 +10,7 @@ function ApplicationsPage(){
     const token = localStorage.getItem("token");
     const [selectedJob, setSelectedJob] = useState(null);
 
-    const { setNavConfig, filter, setFilter } = useNavBar(); //tune into broadcast
+    const { setNavConfig, filter, setFilter, searchTerm } = useNavBar(); //tune into broadcast
 
     //when this page mounts tell navbar to show it
     useEffect(() => {
@@ -26,8 +26,14 @@ function ApplicationsPage(){
     }, [filter]); // re-run when filter changes so NavBar stays in sync
 
 
-    const filteredJobs = filter === "ALL" ? jobList : jobList.filter(job =>
-        job.status === filter);
+    const filteredJobs = jobList
+        .filter(job => filter === "ALL" || job.status === filter)
+        .filter(job =>
+            job.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            job.jobTitle.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+
+
 
     useEffect(() => {
         fetch("http://localhost:8080/api/v1/applications",{

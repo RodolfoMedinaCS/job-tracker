@@ -6,7 +6,7 @@ import {useState} from "react";
 
 
 function NavBar() {
-    const {navConfig, filter, setFilter} = useNavBar();
+    const {navConfig, filter, setFilter, setSearchTerm} = useNavBar();
 
     let booleanValue
     if(navConfig.showFilter && navConfig.showSearch){
@@ -23,13 +23,15 @@ function NavBar() {
 
                         <div className={styles.searchBar}>
                             <FaMagnifyingGlass />
-                            <input type="text" placeholder="Search Application"/>
+                            <input type="text" placeholder="Search Application" onChange={(e) =>{
+                                setSearchTerm(e.target.value);
+                            }}/>
                         </div>
 
                         <div className={styles.filters}>
                             <label className={styles.inputLabel}>Status Filters</label>
                             <select value={filter} onChange={(e) =>
-                                setFilter(e.target.value)}>
+                                setFilter(e.target.value)}>x
                                 <option value="ALL">ALL</option>
                                 <option value="SUBMITTED">Submitted</option>
                                 <option value="UNDER_REVIEW">Under Review</option>

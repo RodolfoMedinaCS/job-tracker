@@ -10,9 +10,10 @@ export function NavBarProvider({ children }){
     });
 
     const[filter, setFilter] = useState("ALL");
+    const[searchTerm, setSearchTerm] = useState("");
 
     return(
-        <NavBarContext.Provider value={{navConfig, setNavConfig, filter, setFilter}}>
+        <NavBarContext.Provider value={{navConfig, setNavConfig, filter, setFilter, searchTerm, setSearchTerm}}>
             {children}
         </NavBarContext.Provider>
     );

@@ -1,10 +1,29 @@
 import styles from './AppCards.module.css'
-import { Link } from "react-router-dom";
 import {useState} from "react";
 
 function appCards({job, onCardClick}){
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [isHovered, setIsHovered] = useState(false);
+
+    const now = new Date();
+    const target = new Date(job.dateApplied);
+
+    now.setHours(0, 0, 0, 0);
+    target.setHours(0, 0, 0, 0);
+
+    const diffTime = target - now;
+    const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+
+    const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+
+    // Handle specific edge cases first
+    if (diffDays === 0) return "today";
+    if (diffDays === -1) return "yesterday";
+    if (diffDays >= -7 && diffDays < -1) return `${Math.abs(diffDays)} days ago`;
+    if (diffDays === -7) return "a week ago";
+
+    // Fallback for dates older than a week or dates in the future
+    let dateLabel = rtf.format(diffDays, 'day');
 
     function formatStatus(status) {
         if (!status) return "";
@@ -62,7 +81,7 @@ function appCards({job, onCardClick}){
                         </div>
                     </div>
 
-                    <p className={styles.postedDate}>Posted Yesterday</p>
+                    <p className={styles.postedDate}>{dateLabel}</p>
                 </div>
             </div>
         </div>
