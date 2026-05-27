@@ -29,7 +29,6 @@ frontend/dist/
 frontend/.env
 
 # Backend env
-backend/src/main/resources/application.properties
 frontend/node_modules/
 frontend/dist/
 .claude/
