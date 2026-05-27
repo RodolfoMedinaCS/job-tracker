@@ -11,14 +11,14 @@ function Dashboard() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch("http://localhost:8080/api/v1/applications/stats", {
+        fetch(`${import.meta.env.VITE_API_URL}/api/v1/applications/stats`, {
             method: "GET",
             headers: { "Authorization": `Bearer ${token}` }
         })
             .then(res => res.json())
             .then(data => setStats(data));
 
-        fetch("http://localhost:8080/api/v1/applications", {
+        fetch(`${import.meta.env.VITE_API_URL}/api/v1/applications`, {
             method: "GET",
             headers: { "Authorization": `Bearer ${token}` }
         })

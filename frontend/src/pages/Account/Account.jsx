@@ -15,7 +15,7 @@ function Account(){
 
     useEffect(() => {
         async function fetchProfile(){
-            const response = await fetch("http://localhost:8080/api/v1/users/profile",{
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/users/profile`,{
                 method : "GET",
                 headers : {
                     "Authorization" : `Bearer ${token}`
@@ -54,7 +54,7 @@ function Account(){
 
         try{
 
-            const response = await fetch("http://localhost:8080/api/v1/users/password",{
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/users/password`,{
                 method : "PATCH",
                 headers: {
                     "Content-Type" : "application/json",
@@ -81,7 +81,7 @@ function Account(){
 
     async function accountDeletion(){
         try{
-            const response = await fetch("http://localhost:8080/api/v1/users/deleteAccount",{
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/users/deleteAccount`,{
                 method: "DELETE",
                 headers: {
                     "Authorization" : `Bearer ${token}`
@@ -103,7 +103,7 @@ function Account(){
 
     async function changeEmailOrName(){
         try{
-            const response = await fetch("http://localhost:8080/api/v1/users/details",{
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/users/details`,{
                 method : "PATCH",
                 headers : {
                     "Content-Type" : "application/json",

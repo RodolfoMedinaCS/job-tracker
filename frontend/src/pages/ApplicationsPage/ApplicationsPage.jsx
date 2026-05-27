@@ -36,7 +36,7 @@ function ApplicationsPage(){
 
 
     useEffect(() => {
-        fetch("http://localhost:8080/api/v1/applications",{
+        fetch(`${import.meta.env.VITE_API_URL}/api/v1/applications`,{
             method: "GET",
             headers: {
                 "Content-Type" : "application/json",

@@ -86,7 +86,7 @@ function AddApplication(){
         if(existingApp){
             try{
                 const response =
-                    await fetch(`http://localhost:8080/api/v1/applications/${existingApp.id}`,{
+                    await fetch(`${import.meta.env.VITE_API_URL}/api/v1/applications/${existingApp.id}`,{
                         method: "PATCH",
                         headers: {
                             "Content-Type" : "application/json",
@@ -104,7 +104,7 @@ function AddApplication(){
         }else{
             try{
                 const response =
-                    await fetch("http://localhost:8080/api/v1/applications",{
+                    await fetch(`${import.meta.env.VITE_API_URL}/api/v1/applications`,{
                         method: "POST",
                         headers: {
                             "Content-Type" : "application/json",

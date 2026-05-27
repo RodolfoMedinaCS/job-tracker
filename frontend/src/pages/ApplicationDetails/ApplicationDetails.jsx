@@ -11,7 +11,7 @@ function ApplicationDetails(){
     const token = localStorage.getItem("token");
 
     useEffect(() => {
-        fetch(`http://localhost:8080/api/v1/applications/${id}`,{
+        fetch(`${import.meta.env.VITE_API_URL}/api/v1/applications/${id}`,{
             method: "GET",
             headers: {
                 "Content-Type" : "application/json",
@@ -36,7 +36,7 @@ function ApplicationDetails(){
     async function confirmDelete(){
         try{
             const response =
-                await fetch(`http://localhost:8080/api/v1/applications/${id}`,{
+                await fetch(`${import.meta.env.VITE_API_URL}/api/v1/applications/${id}`,{
                     method: "DELETE",
                     headers: {
                         "Content-Type" : "application/json",
