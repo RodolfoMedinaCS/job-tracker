@@ -1,4 +1,4 @@
-import {Route, Routes} from "react-router-dom";
+import {Navigate, Route, Routes} from "react-router-dom";
 import ApplicationDetails from "./pages/ApplicationDetails/ApplicationDetails.jsx";
 import Login from "./pages/Login/Login.jsx";
 import Register from "./pages/Register/Register.jsx";
@@ -13,6 +13,7 @@ function App(){
   return(
       <>
           <Routes>
+              <Route path="/" element={<Navigate to="/login" />} />
               <Route element={<ContentWindow />}>
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path={"/Account"} element={<Account/>}> </Route>
