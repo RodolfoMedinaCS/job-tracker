@@ -26,10 +26,18 @@ public class JobApplicationController {
         return jobApplicationService.saveApplication(jobApplication);
     }
 
+
+
     //get all applications
     @GetMapping("/api/v1/applications")
     public List<JobApplicationDTO> getAllApplications(){
         return jobApplicationService.getAllApplications();
+    }
+
+    //get user stats
+    @GetMapping("/api/v1/applications/stats")
+    public Stats getStats(){
+        return jobApplicationService.getStats();
     }
 
     //get single application
@@ -51,10 +59,5 @@ public class JobApplicationController {
         jobApplicationService.updateApplication(id, jobApplication);
     }
 
-    //get user stats
-    @GetMapping("p")
-    public Stats getStats(){
-        return jobApplicationService.getStats();
-    }
 
 }
