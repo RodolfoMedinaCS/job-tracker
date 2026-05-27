@@ -9,4 +9,51 @@
 .dashboardBody{
     border: 1px solid black;
     height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.botDashboard{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.contentBody{
+    width: 80%;
+    height: auto;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/*MID SECTION*/
+.detContainer{
+    background-color: #2f2f30;
+    width: 80%;
+    border: 1px solid black;
+    height: auto;
+    display: flex;
+    padding: 15px;
+}
+.midContainer{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 1rem;
+}
+/*mid right container*/
+.titleContainer{
+
+}
+.containerTitle{
+    font-size: 15px;
+    font-weight: 400;
+    color: #ababab;
+}
+.perContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
 }

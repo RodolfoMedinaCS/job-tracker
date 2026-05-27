@@ -52,7 +52,7 @@ public class JobApplicationController {
     }
 
     //get user stats
-    @GetMapping("/api/v1/applications/stats")
+    @GetMapping("p")
     public Stats getStats(){
         return jobApplicationService.getStats();
     }
