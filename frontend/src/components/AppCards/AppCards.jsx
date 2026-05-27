@@ -16,14 +16,12 @@ function appCards({job, onCardClick}){
 
     const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
 
-    // Handle specific edge cases first
-    if (diffDays === 0) return "today";
-    if (diffDays === -1) return "yesterday";
-    if (diffDays >= -7 && diffDays < -1) return `${Math.abs(diffDays)} days ago`;
-    if (diffDays === -7) return "a week ago";
-
-    // Fallback for dates older than a week or dates in the future
-    let dateLabel = rtf.format(diffDays, 'day');
+    let dateLabel;
+    if (diffDays === 0)                        dateLabel = "today";
+    else if (diffDays === -1)                  dateLabel = "yesterday";
+    else if (diffDays >= -7 && diffDays < -1)  dateLabel = `${Math.abs(diffDays)} days ago`;
+    else if (diffDays === -7)                  dateLabel = "a week ago";
+    else                                       dateLabel = rtf.format(diffDays, 'day');
 
     function formatStatus(status) {
         if (!status) return "";
