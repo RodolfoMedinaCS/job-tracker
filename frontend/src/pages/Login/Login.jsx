@@ -1,100 +1,88 @@
 import styles from "./Login.module.css"
-import {Link, useNavigate} from "react-router-dom";
-import loginImage from "../../../svgImages/file.svg"
-import {useState} from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { IoDocumentText } from "react-icons/io5";
 
-function Login(){
+function Login() {
     const navigate = useNavigate();
+    const [loginData, setLoginData] = useState({ email: "", password: "" });
 
-    let initialData = {
-        email : "",
-        password: "",
-    };
-
-    const [loginData, setLoginData] = useState(initialData);
-
-    async function handleLogin(){
-        if(!loginData.email || !loginData.password){
+    async function handleLogin() {
+        if (!loginData.email || !loginData.password) {
             alert("Please fill out all fields!");
             return;
         }
-        await callLogging();
-    }
-
-    async function callLogging(){
-        try{
-            const response =
-                await fetch("http://localhost:8080/api/v1/auth/authenticate", {
-                    method : "POST",
-                    headers : {"Content-Type": "application/json"},
-                    body: JSON.stringify(loginData)
+        try {
+            const response = await fetch("http://localhost:8080/api/v1/auth/authenticate", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(loginData)
             });
-
-            if(!response.ok){
-                throw new Error("failed to Login!");
-            }
+            if (!response.ok) throw new Error("failed to Login!");
             const data = await response.json();
             localStorage.setItem("token", data.token);
             navigate("/dashboard");
-
-        }catch(error){
+        } catch (error) {
             console.log(error);
         }
     }
 
+    return (
+        <div className={styles.page}>
+            <div className={styles.box}>
+                <div className={styles.brand}>
+                    <div className={styles.brandIcon}>
+                        <IoDocumentText />
+                    </div>
+                    <span className={styles.brandName}>JobApps</span>
+                </div>
 
-    return(
-        <>
-            <div className={styles.flexContiner}>
-                <div className={styles.loginBox}>
-                    <div className={styles.loginInfo}>
+                <div className={styles.heading}>
+                    <h2>Welcome back</h2>
+                    <p>Sign in to your account to continue</p>
+                </div>
 
-                        <div>
-                            <div>
-                                <label>JobApps</label>
-                            </div>
-                        </div>
-
-                        <header className={styles.loginHeader}>
-                            <span>Hello,</span>
-                            <span>Welcome Back</span>
-                            <p>Hey, welcome back to your special place</p>
-                        </header>
-
-                        <div className={styles.userInput}>
-
-                            <div className={styles.email}>
-                                <input value={loginData.email} type="email" placeholder="Email" onChange={(e) =>
-                                setLoginData({...loginData, email: e.target.value})} />
-                            </div>
-
-                            <div className={styles.password}>
-                                <input value={loginData.password} type="password" placeholder="Password" onChange={(e) =>
-                                setLoginData({...loginData, password: e.target.value})} />
-                            </div>
-
-                            <div className={styles.radioBttn}>
-                                <input type="checkbox" id="rememberMe"/>
-                                <label htmlFor="rememberMe" >Remember Me</label>
-                            </div>
-                        </div>
-
-
-
-                        <div className={styles.bttns}>
-                            <Link to={"/register"}>
-                                <button className={styles.lgnbttn} >Create Account</button>
-                            </Link>
-                            <button className={styles.lgnbttn} onClick={handleLogin}>Log In</button>
-                        </div>
+                <div className={styles.fields}>
+                    <div className={styles.field}>
+                        <label>Email</label>
+                        <input
+                            type="email"
+                            placeholder="you@email.com"
+                            value={loginData.email}
+                            onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}
+                        />
+                    </div>
+                    <div className={styles.field}>
+                        <label>Password</label>
+                        <input
+                            type="password"
+                            placeholder="••••••••"
+                            value={loginData.password}
+                            onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
+                        />
+                    </div>
+                    <div className={styles.checkboxRow}>
+                        <input type="checkbox" id="rememberMe" />
+                        <label htmlFor="rememberMe">Remember me</label>
                     </div>
                 </div>
 
-                <div className={styles.imgContainer}>
-                    <img src={loginImage} alt="login illustration"/>
+                <button className={styles.btnPrimary} onClick={handleLogin}>
+                    Log in
+                </button>
+
+                <div className={styles.divider}>
+                    <div className={styles.dividerLine} />
+                    <span className={styles.dividerText}>don't have an account?</span>
+                    <div className={styles.dividerLine} />
                 </div>
+
+                <Link to="/register">
+                    <button className={styles.btnSecondary}>Create account</button>
+                </Link>
             </div>
-        </>
-    )
+        </div>
+    );
 }
-export default Login
+
+export default Login;

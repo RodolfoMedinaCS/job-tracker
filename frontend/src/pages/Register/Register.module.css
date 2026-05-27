@@ -1,126 +1,166 @@
-
-*{
-    font-family: "Josefin Sans", sans-serif;
-}
-.loginBox{
-    width: 500px;
-    height: 600px;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid black;
-    -webkit-box-shadow: -1px 5px 20px -1px rgba(0,0,0,0.82);
-    box-shadow: -1px 5px 20px -1px rgba(0,0,0,0.82);
-    background-color: var(--card-lavender-hover);
-
-}
-
-
-
-.flexContainer{
-    display: flex;
+.page {
     width: 100%;
     min-height: 100vh;
-    justify-content: center;
+    background-color: #f0f4ff;
+    display: flex;
     align-items: center;
-    border: 1px solid black;
+    justify-content: center;
 }
 
-.userInput{
-    width: 400px;
-    height: auto;
+.box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 36px 32px;
+    width: 100%;
+    max-width: 380px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    gap: 24px;
 }
 
-.radioBttn{
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brandIcon {
+    width: 32px;
+    height: 32px;
+    background: #1d4ed8;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+}
+
+.brandName {
+    font-size: 16px;
+    font-weight: 500;
+    color: #0f172a;
+}
+
+.heading {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.heading h2 {
+    font-size: 22px;
+    font-weight: 500;
+    color: #0f172a;
+    margin: 0;
+}
+
+.heading p {
+    font-size: 13px;
+    color: #94a3b8;
+    margin: 0;
+}
+
+.fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.field label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #475569;
+}
+
+.field input {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+    color: #0f172a;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.field input:focus {
+    border-color: #1d4ed8;
+    box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1);
+}
+
+.field input::placeholder {
+    color: #94a3b8;
+}
+
+.checkboxRow {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding-left: 10px;
-    padding-top: 5px;
+    font-size: 12px;
+    color: #64748b;
 }
 
-.radioBttn label {
+.btnPrimary {
+    background: #1d4ed8;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 11px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btnPrimary:hover {
+    background: #1539a8;
+    transform: translateY(-1px);
+}
+
+.btnPrimary:active {
+    transform: translateY(0);
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dividerLine {
+    flex: 1;
+    height: 0.5px;
+    background: #e2e8f0;
+}
+
+.dividerText {
+    font-size: 11px;
+    color: #94a3b8;
     white-space: nowrap;
 }
 
-.email,
-.password,
-.getName{
-    width: 100%;
-    padding-bottom: 5px;
-}
-
-.email input,
-.password input,
-.getName input{
-    box-sizing: border-box;
-    width: 100%;
-    height: 40px;
-    border-radius: 10px;
-    padding: 10px
-}
-
-
-
-.loginHeader{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 100%;
-}
-
-.loginInfo{
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 3rem;
-}
-
-.loginHeader span{
-    font-size: 40px;
-    font-weight: bold;
-}
-.loginHeader p{
-    font-size: 15px
-}
-
-.bttns{
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-}
-
-.regBttn{
-    border: none;
-    outline: none;
-    background: none;
+.btnSecondary {
+    background: #fff;
+    color: #0f172a;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 11px;
+    font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
-
-    padding: 10px 20px;
-    background-color: #7945ff;
-    font-size: 16px;
-    font-weight: lighter;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    border-radius: 10px;
-
-    color: white;
+    width: 100%;
+    transition: background-color 0.2s ease;
 }
 
-.regBttn:hover{
-    background-color: #0056b3;
-    transform: translateY(-2px);
-}
-
-.regBttn:active{
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #003367;
+.btnSecondary:hover {
+    background: #f8fafc;
 }
