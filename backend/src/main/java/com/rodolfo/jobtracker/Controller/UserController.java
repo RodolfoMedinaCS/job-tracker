@@ -4,7 +4,6 @@ import com.rodolfo.jobtracker.DTO.*;
 import com.rodolfo.jobtracker.Service.UserService;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 public class UserController {
 
